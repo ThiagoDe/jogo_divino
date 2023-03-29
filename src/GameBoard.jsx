@@ -6,10 +6,10 @@ const GameBoardContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  // width: 70%;
-  // max-height: 70%;
+  max-width: 80%;
+  max-height: 70%;
   // padding-bottom: 70%;
-  border: 2px solid black;
+  // border: 2px solid black;
   border-radius: 50%;
   position: absolute;
   top: 50%;

@@ -20,7 +20,7 @@ const CardNumber = styled.div`
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 24px;
+  font-size: 14px;
   font-weight: bold;
 `;
 
@@ -28,7 +28,7 @@ const Card = ({ cardInfo, number }) => {
   return (
     <CardContainer style={{ transform: `rotate(${number * 30}deg) translate(-50%, -50%)` }}>
       <CardImage src={cardInfo.image} alt={cardInfo.name} />
-      <CardNumber>{number + 1}</CardNumber>
+      <CardNumber>{cardInfo.name}</CardNumber>
     </CardContainer>
   );
 };
