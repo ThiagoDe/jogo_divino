@@ -1,0 +1,10 @@
+.game-board {
+    width: 80%;
+    height: 80%;
+    max-width: 1600px;
+    max-height: 1200px;
+    border: 5px solid black;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: white;
+}
