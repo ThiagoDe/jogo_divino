@@ -1,10 +1,12 @@
 .game-board {
     width: 80%;
-    height: 80%;
+    height: 90%;
     max-width: 1600px;
-    max-height: 1200px;
+    max-height: 1500px;
+    min-height: 800px;
     border: 5px solid black;
     margin: 0 auto;
     box-sizing: border-box;
-    background-color: white;
+    background: linear-gradient(to right, var(--black-olive) 0%, var(--black-olive) 50%, var(--secondary-color) 50%, var(--secondary-color) 100%);
+    /* margin-top: 70px; */
 }

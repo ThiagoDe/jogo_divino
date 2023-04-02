@@ -1,0 +1,19 @@
+.spread-board {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    width: 80%;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.spread-board .card {
+    transition: transform 0.3s ease-in-out;
+}
+
+.spread-board .card:hover {
+    transform: scale(1.15);
+}

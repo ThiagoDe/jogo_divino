@@ -1,0 +1,39 @@
+.card {
+    // perspective: 1000px;
+    // transform-style: preserve-3d;
+}
+
+.card img {
+    border-radius: 10px;
+}  
+
+.card-image-back,
+.card-image-front {
+    position: absolute;
+
+    // -webkit-backface-visibility: hidden;
+    // backface-visibility: hidden;
+} 
+
+.in-card {
+    // perspective: 1000px;
+    // transform-style: preserve-3d;
+}
+
+.card-image-back {
+    transform: rotateY(180deg);
+}
+
+.flip-exit {
+    transform: rotateY(0deg);
+}
+
+.flip-exit-active {
+    transform: rotateY(180deg);
+    transition: transform 300ms;
+}
+
+.flip-exit-done {
+    transform: rotateY(180deg);
+}
+
