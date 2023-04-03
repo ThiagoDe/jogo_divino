@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 import './GameBoard.css';
 import CardBoard from './CardBoard';
 
-const cardInfoArray = [
-  { name: 'O MAGO', image: '/12 - O MAGO.png' },
-  { name: 'A CRIAÇÃO', image: '/1 - A CRIAÇÃO.png' },
-  { name: 'O AMANTE', image: '/2 - O AMANTE.png' },
-  { name: 'O GOVERNANTE', image: '/3 - O GOVERNANTE.png' },
-  { name: 'O SÁBIO', image: '/4 - O SÁBIO.png' },
-  { name: 'O INOCENTE', image: '/5 - O INOCENTE.png' },
-  { name: 'O CIGANO', image: '/6 - O CIGANO.png' },
-  { name: 'O APRENDIZ', image: '/7 - O APRENDIZ.png' },
-  { name: 'O POLÍTICO', image: '/8 - O POLÍTICO.png' },
-  { name: 'O SACERDOTE', image: '/9 - O SACERDOTE.png' },
-  { name: 'O LOUCO', image: '/10 - O LOUCO.png' },
-  { name: 'O PROVEDOR', image: '/11 - O PROVEDOR.png' },
-];
+// const cardInfoArray = [
+//   { name: 'O MAGO', image: '/12 - O MAGO.png' },
+//   { name: 'A CRIAÇÃO', image: '/1 - A CRIAÇÃO.png' },
+//   { name: 'O AMANTE', image: '/2 - O AMANTE.png' },
+//   { name: 'O GOVERNANTE', image: '/3 - O GOVERNANTE.png' },
+//   { name: 'O SÁBIO', image: '/4 - O SÁBIO.png' },
+//   { name: 'O INOCENTE', image: '/5 - O INOCENTE.png' },
+//   { name: 'O CIGANO', image: '/6 - O CIGANO.png' },
+//   { name: 'O APRENDIZ', image: '/7 - O APRENDIZ.png' },
+//   { name: 'O POLÍTICO', image: '/8 - O POLÍTICO.png' },
+//   { name: 'O SACERDOTE', image: '/9 - O SACERDOTE.png' },
+//   { name: 'O LOUCO', image: '/10 - O LOUCO.png' },
+//   { name: 'O PROVEDOR', image: '/11 - O PROVEDOR.png' },
+// ];
 
 const cardPlaceholders = [
   { name: 'O MAGO', image: '/placehoders/12.png', id: 12 },
@@ -34,7 +34,7 @@ const cardPlaceholders = [
 
 const destruidorCentral = { name: 'O DESTRUIDOR', image: '/13 - O DESTRUIDOR.png' };
 
-const GameBoard = (props) => {
+const GameBoard = () => {
 
   const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
   const [ windowHeight, setWindowHeight ] = useState(window.innerHeight)
@@ -58,7 +58,6 @@ const GameBoard = (props) => {
 
   return (
     <div className="game-board" >
-      {/* { props.handleCallback(cardSize) } */}
 
       {cardPlaceholders.map((card, index) => {
         const x = centerX + Math.sin(index * cardAngle) * (boardSize / 2 - cardSize / 2);
@@ -66,8 +65,7 @@ const GameBoard = (props) => {
         return (
           <>
             <CardBoard
-              key={card.id}
-              number={index + 1}
+              key={card.name}
               name={card.name}
               image={card.image}
               placeHolder={true}
@@ -76,9 +74,7 @@ const GameBoard = (props) => {
                 top: y,
                 left: x,
                 width: cardSize,
-                // height: cardSize,
-                border: '1px solid black',
-                
+                border: '1px solid black',    
               }}
             />
             
@@ -86,7 +82,7 @@ const GameBoard = (props) => {
         );
       })}
       <CardBoard
-        number={13}
+        key={13}
         name={destruidorCentral.name}
         image={'/placehoders/13.png'}
         placeHolder={true}
@@ -95,10 +91,10 @@ const GameBoard = (props) => {
           top: centerY,
           left: centerX,
           width: cardSize,
-          // height: cardSize,
           border: '1px solid black',
         }}
       />
+      
       
     </div>
   );

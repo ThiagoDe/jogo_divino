@@ -8,7 +8,8 @@ const Card = ({ name, image, marginLeft, style, placeHolder }) => {
   const [cardHeight, setCardHeight] = useState()
   const [placeLeft, setPlaceLeft] = useState()
   const [placeTop, setPlaceTop] = useState()
-  const currentCard = useRef(null)
+  const [currLeft, setCurrLeft] = useState()
+  const [currTop, setCurrTop] = useState()
 
   // find the final card position
   useEffect(() => {
@@ -21,9 +22,25 @@ const Card = ({ name, image, marginLeft, style, placeHolder }) => {
   }, [name])
 
   // handle card click from the spread board
-  const onClick = () =>{
-          setShowFront(false)
-  }
+  const onClick = (e) =>{
+    setShowFront(false)
+    const cardElement = e.target.getBoundingClientRect();
+    setCurrTop(cardElement.top)
+    setCurrLeft(cardElement.left);
+    // setPlaceLeft(cardElement.left); // Update the final position to the clicked position
+    // setPlaceTop(cardElement.top);
+    setTimeout(() => {
+      document.querySelector('.card-content').classList.add('move'); // Add the move class to animate the card movement
+    }, 0);
+}
+
+  setTimeout(() => {
+    requestAnimationFrame(() => {
+      document.querySelector('.card-content').classList.add('move');
+    });
+  }, 0);
+
+
 
   useEffect(() => {
     const card = document.querySelector('.card-image-front-board')
@@ -40,8 +57,17 @@ const Card = ({ name, image, marginLeft, style, placeHolder }) => {
                     timeout={300}
                     classNames='flip'
                 >
-          {/* add height here */}
-            <div className='card-content' onClick={onClick}  style={{ width: style.width, height: cardHeight, marginLeft: marginLeft }}>
+          
+            <div className={`card-content ${showFront ? '' : 'move'}`} onClick={onClick}  
+                style={{ 
+                  width: style.width, 
+                  height: cardHeight, 
+                  marginLeft: marginLeft,
+                  '--start-top': currTop,
+                  '--start-left': currLeft,
+                  '--end-top': placeTop,
+                  '--end-left': placeLeft,
+                  }}>
               
               <img src={image} alt={name} className="card-image-front"  style={{ width: style.width, marginLeft: marginLeft}}/>
             

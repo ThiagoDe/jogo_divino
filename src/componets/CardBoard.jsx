@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import './CardBoard.scss'
 
 
-const CardBoard = ({ name, image, marginLeft, style, id }) => {
+const CardBoard = ({ name, image, marginLeft, style,  }) => {
+
   const [showFront, setShowFront ] = useState(false)
 
   const onClick = () =>{

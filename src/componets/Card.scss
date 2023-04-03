@@ -1,12 +1,7 @@
 // this is the flippeable class 
 .card {
-    perspective:  1000px;
-    
+    perspective:  1000px; 
 }
-
-// .card:hover {
-//     z-index: 9999;
-// }
 
 .card-content {
     position: relative;
@@ -18,11 +13,33 @@
     border-radius: 10px;
     // test
     transition: transform 1000ms;
+
+    //move
+    animation: move 1s ease-in-out forwards;
 }
 
-// .card-content:hover {
-//     transform: rotateY(180deg);
+// .move .flip-exit-done {
+//     animation: move 1s ease-in-out forwards;
 // }
+
+@keyframes move-card {
+    from {
+        top: var(--start-top);
+        left: var(--start-left);
+    }
+
+    to {
+        top: var(--end-top);
+        left: var(--end-left);
+    }
+}
+
+.move {
+    animation-name: move-card;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
 
 .card-content img {
     border-radius: 10px;
@@ -41,14 +58,9 @@
 
 } 
 
-// .card-image-front:hover {
-//     position: absolute;
 
-// }
 .card-image-front {
     transform: rotateY(180deg);
-    
-
 }
 
 .card-image-back {
