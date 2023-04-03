@@ -18,18 +18,18 @@ const cardInfoArray = [
 ];
 
 const cardPlaceholders = [
-  { name: 'O MAGO', image: '/placehoders/12.png' },
-  { name: 'A CRIAÇÃO', image: '/placehoders/1.png' },
-  { name: 'O AMANTE', image: '/placehoders/2.png' },
-  { name: 'O GOVERNANTE', image: '/placehoders/3.png' },
-  { name: 'O SÁBIO', image: '/placehoders/4.png' },
-  { name: 'O INOCENTE', image: '/placehoders/5.png' },
-  { name: 'O CIGANO', image: '/placehoders/6.png' },
-  { name: 'O APRENDIZ', image: '/placehoders/7.png' },
-  { name: 'O POLÍTICO', image: '/placehoders/8.png' },
-  { name: 'O SACERDOTE', image: '/placehoders/9.png' },
-  { name: 'O LOUCO', image: '/placehoders/10.png' },
-  { name: 'O PROVEDOR', image: '/placehoders/11.png' },
+  { name: 'O MAGO', image: '/placehoders/12.png', id: 12 },
+  { name: 'A CRIAÇÃO', image: '/placehoders/1.png', id: 1 },
+  { name: 'O AMANTE', image: '/placehoders/2.png', id: 2 },
+  { name: 'O GOVERNANTE', image: '/placehoders/3.png', id: 3 },
+  { name: 'O SÁBIO', image: '/placehoders/4.png', id: 4 },
+  { name: 'O INOCENTE', image: '/placehoders/5.png', id: 5 },
+  { name: 'O CIGANO', image: '/placehoders/6.png', id: 6 },
+  { name: 'O APRENDIZ', image: '/placehoders/7.png', id: 7 },
+  { name: 'O POLÍTICO', image: '/placehoders/8.png', id: 8 },
+  { name: 'O SACERDOTE', image: '/placehoders/9.png', id: 9 },
+  { name: 'O LOUCO', image: '/placehoders/10.png', id: 10 },
+  { name: 'O PROVEDOR', image: '/placehoders/11.png', id: 11 },
 ]
 
 const destruidorCentral = { name: 'O DESTRUIDOR', image: '/13 - O DESTRUIDOR.png' };
@@ -38,6 +38,11 @@ const GameBoard = (props) => {
 
   const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
   const [ windowHeight, setWindowHeight ] = useState(window.innerHeight)
+  const boardSize = Math.min(windowWidth, windowHeight) * 0.6;
+  const cardSize = (boardSize * 0.2) - 10;
+  const cardAngle = (2 * Math.PI) / 12;
+  const centerX = (windowWidth / 2) - (cardSize / 2); // left - right
+  const centerY = ((windowHeight) / 2) - (cardSize * 1.4 ) ; // up - down
   
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)
@@ -50,17 +55,10 @@ const GameBoard = (props) => {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
-  
-
-  const boardSize = Math.min(windowWidth, windowHeight) * 0.6;
-  const cardSize = (boardSize * 0.2) - 10;
-  const cardAngle = (2 * Math.PI) / 12;
-  const centerX = (windowWidth / 2) - (cardSize / 2); // left - right
-  const centerY = ((windowHeight) / 2) - (cardSize * 1.4 ) ; // up - down
 
   return (
     <div className="game-board" >
-      { props.handleCallback(cardSize) }
+      {/* { props.handleCallback(cardSize) } */}
 
       {cardPlaceholders.map((card, index) => {
         const x = centerX + Math.sin(index * cardAngle) * (boardSize / 2 - cardSize / 2);
@@ -68,7 +66,7 @@ const GameBoard = (props) => {
         return (
           <>
             <CardBoard
-              key={card.name}
+              key={card.id}
               number={index + 1}
               name={card.name}
               image={card.image}

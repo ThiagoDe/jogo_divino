@@ -1,19 +1,32 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import './Card.scss'
 import { CSSTransition } from 'react-transition-group';
 
 
 const Card = ({ name, image, marginLeft, style, placeHolder }) => {
-  const [showFront, setShowFront ] = useState(true)
+  const [showFront, setShowFront] = useState(true)
   const [cardHeight, setCardHeight] = useState()
+  const [placeLeft, setPlaceLeft] = useState()
+  const [placeTop, setPlaceTop] = useState()
+  const currentCard = useRef(null)
 
+  // find the final card position
+  useEffect(() => {
+    const refCard = document.querySelector(`img[alt="${name}"]`)
+    if (refCard) {
+      const {left, top } = refCard.getBoundingClientRect()
+      setPlaceLeft(left)
+      setPlaceTop(top)
+    }
+  }, [name])
+
+  // handle card click from the spread board
   const onClick = () =>{
           setShowFront(false)
   }
 
   useEffect(() => {
     const card = document.querySelector('.card-image-front-board')
-    
     const handleResize = () => setCardHeight(card.offsetHeight)
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)

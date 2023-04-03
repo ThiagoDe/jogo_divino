@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import './SpreadBoard.scss';
-import { CSSTransition } from 'react-transition-group';
 
 const cardInfoArray = [
     { name: 'A CRIAÇÃO', image: '/1 - A CRIAÇÃO.png' },
@@ -21,21 +20,31 @@ const cardInfoArray = [
 
 
 
-const SpreadBoard = ({ cardSize }) => {
-    // const [showFront, setShowFront ] = useState(true)
-    const numCards = cardInfoArray.length;
-    const cardWidth = cardSize
-    const spreadWidth = numCards * cardWidth;
-    const marginLeft = -cardWidth / 2;
+const SpreadBoard = () => {
+    const [cardWidth, setCardWidth ] = useState(null)
+    const marginLeft = cardWidth ? -cardWidth / 2 : 0;
+
+    useEffect(() => {
+        const waitForElement = async () => {
+            while (!document.querySelector('.card-image-front-board')) {
+                await new Promise(resolve => setTimeout(resolve, 100))
+            }
+            const card = document.querySelector('.card-image-front-board');
+            setCardWidth(card.offsetWidth)
+        }
+        waitForElement()
+    }, [])
+
+    useEffect(() => {
+        const card = document.querySelector('.card-image-front-board')
+        const handleResize = () => setCardWidth(card.offsetWidth)
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     return (
         <div className="spread-board" style={{minHeight: '20%'}}>
         {cardInfoArray.map((cardInfo, index) => (
-            // <CSSTransition
-            //     in={showFront}
-            //     timeout={300}
-            //     classNames='flip'
-            // >
                 <Card 
                     key={cardInfo.name}
                     image={cardInfo.image}
@@ -45,11 +54,10 @@ const SpreadBoard = ({ cardSize }) => {
                     marginLeft={marginLeft}
                     style={{
                         position: 'absolute',
-                        width: cardSize,
+                        width: cardWidth,
                         border: '1px solid black',
                     }}
                 />
-            // </CSSTransition>
         ))}
         </div>
     );

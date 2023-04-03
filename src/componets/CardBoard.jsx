@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './CardBoard.scss'
 
 
-const CardBoard = ({ name, image, marginLeft, style, placeHolder }) => {
+const CardBoard = ({ name, image, marginLeft, style, id }) => {
   const [showFront, setShowFront ] = useState(false)
 
   const onClick = () =>{
@@ -12,11 +12,9 @@ const CardBoard = ({ name, image, marginLeft, style, placeHolder }) => {
   return (
     <>     
       <div className="card-board" onClick={onClick} style={{ marginLeft: marginLeft}}>
-        <div className='card-content-board'>
-          <img src={image} alt={name} className="card-image-front-board" style={style}/>
-          { !placeHolder &&
-            <img src={'/sun-moon2.png'} alt={name} className="card-image-back-board" style={style}/>
-          }
+        <div className='card-content-board' >
+          <img src={image} alt={name} id='image' className="card-image-front-board" style={style}/>
+          
         </div>
       </div>
     </>
