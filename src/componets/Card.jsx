@@ -3,13 +3,14 @@ import './Card.scss'
 import { CSSTransition } from 'react-transition-group';
 
 
-const Card = ({ name, image, marginLeft, style, placeHolder }) => {
+const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
   const [showFront, setShowFront] = useState(true)
   const [cardHeight, setCardHeight] = useState()
   const [placeLeft, setPlaceLeft] = useState()
   const [placeTop, setPlaceTop] = useState()
   const [currLeft, setCurrLeft] = useState()
   const [currTop, setCurrTop] = useState()
+
 
   // find the final card position
   useEffect(() => {

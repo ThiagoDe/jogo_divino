@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import GameBoard from './componets/GameBoard';
 import Header from './componets/Header';
+import Modal from './componets/Modal';
 import SpreadBoard from './componets/SpreadBoard';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       <Header/>
       <GameBoard />
       <SpreadBoard />
+      <Modal/>
     </div>
   );
 }
