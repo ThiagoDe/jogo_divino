@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './GameBoard.css';
-import Card from './Card';
+import CardBoard from './CardBoard';
 
 const cardInfoArray = [
   { name: 'O MAGO', image: '/12 - O MAGO.png' },
@@ -56,7 +56,7 @@ const GameBoard = (props) => {
   const cardSize = (boardSize * 0.2) - 10;
   const cardAngle = (2 * Math.PI) / 12;
   const centerX = (windowWidth / 2) - (cardSize / 2); // left - right
-  const centerY = ((windowHeight) / 2) - (cardSize * 1.2 ) ; // up - down
+  const centerY = ((windowHeight) / 2) - (cardSize * 1.4 ) ; // up - down
 
   return (
     <div className="game-board" >
@@ -67,7 +67,7 @@ const GameBoard = (props) => {
         const y = centerY - Math.cos(index * cardAngle) * (boardSize / 2 - cardSize / 2);
         return (
           <>
-            <Card
+            <CardBoard
               key={card.name}
               number={index + 1}
               name={card.name}
@@ -87,7 +87,7 @@ const GameBoard = (props) => {
           </>
         );
       })}
-      <Card
+      <CardBoard
         number={13}
         name={destruidorCentral.name}
         image={'/placehoders/13.png'}

@@ -8,6 +8,7 @@
     max-width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
 .spread-board .card {
@@ -17,3 +18,4 @@
 .spread-board .card:hover {
     transform: scale(1.15);
 }
+

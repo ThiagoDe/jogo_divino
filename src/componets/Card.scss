@@ -1,27 +1,58 @@
+// this is the flippeable class 
 .card {
-    // perspective: 1000px;
-    // transform-style: preserve-3d;
+    perspective:  1000px;
+    
 }
 
-.card img {
+// .card:hover {
+//     z-index: 9999;
+// }
+
+.card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    // test
+    transition: transform 1000ms;
+}
+
+// .card-content:hover {
+//     transform: rotateY(180deg);
+// }
+
+.card-content img {
     border-radius: 10px;
 }  
 
-.card-image-back,
-.card-image-front {
-    position: absolute;
+.card-image-front,
+.card-image-back {
+    height: 100%;
+    width: 100%;
 
-    // -webkit-backface-visibility: hidden;
-    // backface-visibility: hidden;
+    // stack them on top of each other
+    position: absolute; 
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
 } 
 
-.in-card {
-    // perspective: 1000px;
-    // transform-style: preserve-3d;
+// .card-image-front:hover {
+//     position: absolute;
+
+// }
+.card-image-front {
+    transform: rotateY(180deg);
+    
+
 }
 
 .card-image-back {
-    transform: rotateY(180deg);
+    border-radius: 10px;
 }
 
 .flip-exit {

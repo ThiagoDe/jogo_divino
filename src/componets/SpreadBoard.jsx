@@ -44,8 +44,9 @@ const SpreadBoard = ({ cardSize }) => {
                     placeHolder={false}
                     marginLeft={marginLeft}
                     style={{
-                    width: cardSize,
-                    border: '1px solid black',
+                        position: 'absolute',
+                        width: cardSize,
+                        border: '1px solid black',
                     }}
                 />
             // </CSSTransition>
