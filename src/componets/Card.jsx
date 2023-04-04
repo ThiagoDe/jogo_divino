@@ -1,16 +1,24 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Card.scss'
 import { CSSTransition } from 'react-transition-group';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { updateCurrCard } from '../features/currCard/currCardSlice';
+import { updateModal } from '../features/modal/modalSlice';
 
 const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
   const [showFront, setShowFront] = useState(true)
+
   const [cardHeight, setCardHeight] = useState()
   const [placeLeft, setPlaceLeft] = useState()
   const [placeTop, setPlaceTop] = useState()
   const [currLeft, setCurrLeft] = useState()
   const [currTop, setCurrTop] = useState()
 
+  const currCard = useSelector((state) => state.currCard)
+  const modal = useSelector(state => state.modal)
+  const dispatch = useDispatch()
+  // console.log(currCard)
+  // console.log(modal)
 
   // find the final card position
   useEffect(() => {
@@ -23,26 +31,22 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
   }, [name])
 
   // handle card click from the spread board
-  const onClick = (e) =>{
+  const onClick = (e) => {
+    // update currCard global state
+    dispatch(updateCurrCard(cardInfo))
+
+    // triggers modal 
+    dispatch(updateModal())
+
+    //show the face of the card
     setShowFront(false)
     const cardElement = e.target.getBoundingClientRect();
     setCurrTop(cardElement.top)
     setCurrLeft(cardElement.left);
-    // setPlaceLeft(cardElement.left); // Update the final position to the clicked position
-    // setPlaceTop(cardElement.top);
-    setTimeout(() => {
-      document.querySelector('.card-content').classList.add('move'); // Add the move class to animate the card movement
-    }, 0);
+
 }
 
-  setTimeout(() => {
-    requestAnimationFrame(() => {
-      document.querySelector('.card-content').classList.add('move');
-    });
-  }, 0);
-
-
-
+  // handle resize and responsive design 
   useEffect(() => {
     const card = document.querySelector('.card-image-front-board')
     const handleResize = () => setCardHeight(card.offsetHeight)

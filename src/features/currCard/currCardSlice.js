@@ -3,30 +3,25 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   name: '',
   image: '',
-  compCard: ''
+  compCard: '',
+  compImage: ''
 }
 
 export const currCardSlice = createSlice({
   name: 'currCard',
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
-    },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    updateCurrCard: (state, action) => {
+      const {name, image, compCard, compImage } = action.payload 
+      state.name = name
+      state.image = image
+      state.compCard = compCard
+      state.compImage = compImage
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = currCardSlice.actions
+export const { updateCurrCard } = currCardSlice.actions
 
 export default currCardSlice.reducer
