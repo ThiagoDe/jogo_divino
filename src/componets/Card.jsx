@@ -17,8 +17,6 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
   const currCard = useSelector((state) => state.currCard)
   const modal = useSelector(state => state.modal)
   const dispatch = useDispatch()
-  // console.log(currCard)
-  // console.log(modal)
 
   // find the final card position
   useEffect(() => {
@@ -33,10 +31,12 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
   // handle card click from the spread board
   const onClick = (e) => {
     // update currCard global state
-    dispatch(updateCurrCard(cardInfo))
-
+    
     // triggers modal 
-    dispatch(updateModal())
+    setTimeout(() => {
+      dispatch(updateCurrCard(cardInfo))
+      dispatch(updateModal())
+    }, 600);
 
     //show the face of the card
     setShowFront(false)

@@ -8,7 +8,7 @@ const Modal = () => {
     const [ firstTime, setFirstTime ] = useState(true)
     const modalOpened = useSelector((state) => state.modal.open)
     const currCard = useSelector((state) => state.currCard)
-    console.log(currCard, 'here')
+
     const dispatch = useDispatch()
 
     const modalToggle = () => {
@@ -19,9 +19,7 @@ const Modal = () => {
     }
 
     const coverClass = modalOpened ? 'modal-cover modal-cover-active' : 'modal-cover' // mask background
-
     const containerClass = modalOpened ? 'modal-container modal-container-active' : firstTime ? 'modal-container' : 'modal-container-out'
-    
     
 
     return (
@@ -32,7 +30,7 @@ const Modal = () => {
                 <h1 style={{textAlign: "center"}}> {currCard.name} </h1>
             </div>
             <div className='modal-body' style={{textAlign: "center"}}>
-                <div class="image"><img src={currCard.image} alt={currCard.name} /></div>
+                <div className="image"><img src={currCard.image} alt={currCard.name} /></div>
                 
                 <div className='text-content'>
                     <p>

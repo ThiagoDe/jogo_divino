@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import './SpreadBoard.scss';
+import { useSelector } from 'react-redux';
 
-const cardInfoArray = [
+let cardInfoArray = [
     { name: 'A CRIAÇÃO', image: '/1 - A CRIAÇÃO.png', compCard: 'O APRENDIZ', compImage: '/7 - O APRENDIZ.png' },
     { name: 'O AMANTE', image: '/2 - O AMANTE.png', compCard: 'O POLÍTICO', compImage : '/8 - O POLÍTICO.png'  },
     { name: 'O GOVERNANTE', image: '/3 - O GOVERNANTE.png', compCard: 'O SACERDOTE', compImage: '/9 - O SACERDOTE.png' },
@@ -18,11 +19,25 @@ const cardInfoArray = [
     { name: 'O DESTRUIDOR', image: '/13 - O DESTRUIDOR.png', compCard: 'O DESTRUIDOR', compImage: '/13 - O DESTRUIDOR.png' }
 ];
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
+shuffleArray(cardInfoArray)
 
 const SpreadBoard = () => {
     const [cardWidth, setCardWidth ] = useState(null)
+    const currCard = useSelector((state) => state.currCard)
     const marginLeft = cardWidth ? -cardWidth / 2 : 0;
+
+    if (currCard.name !== '') {
+        const cardArrayUpdated = cardInfoArray.filter( card => card.name !== currCard.name)
+        cardInfoArray = cardArrayUpdated
+    }
 
     useEffect(() => {
         const waitForElement = async () => {
