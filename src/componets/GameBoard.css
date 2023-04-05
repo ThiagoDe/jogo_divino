@@ -1,4 +1,7 @@
 .game-board {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 80%;
     height: 90%;
     max-width: 1600px;
@@ -9,4 +12,40 @@
     box-sizing: border-box;
     background: linear-gradient(to right, var(--black-olive) 0%, var(--black-olive) 50%, var(--secondary-color) 50%, var(--secondary-color) 100%);
     /* margin-top: 70px; */
+    /* background-image: url('../.././public/chakana.png'); */
+    /* background-size: cover; 
+    background-position: center; 
+    background-blend-mode: multiply; */
+}
+
+.moon {
+    opacity: 0.5 ;
+    margin-top: 100px;
+    margin-left: 10px;
+    
+}
+
+.sun {
+    opacity: 0.47 ;
+    width: 330px;
+    margin-top: 100px;
+}
+
+.sun img {
+    width: 100%;
+    /* filter: drop-shadow(0.3rem 0.3rem 0.6rem var(--greyLight-2)) drop-shadow(-0.2rem -0.2rem 0.5rem var(--white)); */
+}
+.moon img {
+    width: 100%;
+    /* filter: drop-shadow(0.3rem 0.3rem 0.6rem var(--greyLight-2)) drop-shadow(-0.2rem -0.2rem 0.5rem var(--white)); */
+}
+
+img[src='/placehoders/9.png']{
+    z-index: 3;
+}
+img[src='/placehoders/8.png']{
+    z-index: 4;
+}
+img[src='/placehoders/7.png']{
+    z-index: 5;
 }

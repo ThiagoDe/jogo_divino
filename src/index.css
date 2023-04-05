@@ -23,9 +23,29 @@ code {
 }
 
 :root {
+
+  /* new palette */
+  /* CSS HEX */
+    --copper: #AE7634ff;
+    --field-drab: #6A5029ff;
+    --dutch-white: #E6D7AEff;
+    --kobicha: #644522ff;
+    --earth-yellow: #D4A75Cff;
+    --caf-noir: #4D381Dff;
+    --drab-dark-brown: #3B311Cff;
+
+
   --primary-color: #2F2F2B;
+  --secondary-color: #E6D7AEff;
+  /* --secondary-color: #D4A75Cff; */
+  --black-olive: #2F2F2B;
+
+  /* old palette */
+  /* --primary-color: #2F2F2B;
   --secondary-color: #EFE3C8;
-  --black-olive: #3e3d37ff; 
+  --black-olive: #3e3d37ff;  */
+
+
   /* CSS HEX */
   --battleship-gray: #938D7Dff;
   --pearl: #E9DDC3ff;
@@ -37,6 +57,15 @@ code {
     --dun: #d3c9b1ff;
     --jet-2: #302f2bff;
     --pearl: #efe3c8ff;
+
+    --primary-light: #D4A75Cff;
+    --primary: #AE7634ff;
+    --primary-dark: #6A5029ff;
+    --white: #f7eee0;
+    --greyLight-1: #e4ebf5;
+    --greyLight-2: #96979a;
+    --greyLight-3: #bec8e4;
+    --greyDark: #9baacf;
 }
 
 /* font-family Celandine */

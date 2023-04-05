@@ -1,0 +1,247 @@
+.playModal-cover {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .6);
+    z-index: 1040;
+    display: none;
+
+}
+
+.playModal-cover.playModal-cover-active {
+    display: block;
+}
+
+.playModal-container {
+    padding: 20px;
+    text-align: center;
+    color: black;
+    z-index: 1050;
+    position: fixed;
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    background: var(--secondary-color);
+    min-height: 400px;
+
+    top: 20%;
+    display: none;
+    text-align: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    max-height: 70vh;
+    max-width: 1600px;
+    width: 80vw;
+    // flex-direction: column;
+
+}
+
+.playModal-container-out {
+    padding: 20px;
+    text-align: center;
+    color: black;
+    z-index: 1050;
+    position: fixed;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    background: white;
+    // width: 600px;
+    min-height: 400px;
+    left: 50%;
+    top: 20%;
+    margin-left: -300px;
+    display: none;
+
+    // new playModal
+    // animation: blowUpPlayModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+
+.playModal-container.playModal-container-active {
+    display: grid;
+    animation: blowUpPlayModal .5s cubic-bezier(0.65, 0.840, 0.440, 1.300) forwards;
+}
+
+.playModal-container-out {
+    display: block;
+    animation: blowUpPlayModalTwo .5s cubic-bezier(0.65, 0.840, 0.440, 1.300) forwards;
+}
+
+.playModal-body p {
+    color: black !important;
+    font-size: 16px !important;
+}
+
+.playModal-body {
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    max-height: 100%;
+
+    min-height: 80%;
+    min-width: 80%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: flex-start;
+}
+
+.playModal-body img {
+
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.image {
+    max-width: 40%;
+}
+
+.card-content {
+    z-index: 1;
+}
+
+.playModal-body .text-content {
+    flex: 1;
+    padding: 15px;
+}
+
+.playModal-header {
+    padding: 15px;
+}
+
+@keyframes blowUpContent {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    99.9% {
+        transform: scale(2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes blowUpContentTwo {
+    0% {
+        transform: scale(2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// in use
+@keyframes blowUpPlayModal {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes blowUpPlayModalTwo {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/*  BUTTONS  */
+.btn {
+    margin: 2rem;
+    width: 15rem;
+    height: 4rem;
+    border-radius: 1rem;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+        -0.2rem -0.2rem 0.5rem var(--white);
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn__primary {
+    background: var(--primary);
+    box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light),
+        inset -0.2rem -0.2rem 1rem var(--primary-dark),
+        0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+    color: var(--greyLight-1);
+}
+
+.btn__primary:hover {
+    color: var(--white);
+}
+
+.btn__primary:active {
+    box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-dark),
+        inset -0.2rem -0.2rem 1rem var(--primary-light);
+}
+
+.btn p {
+    font-size: 1.6rem;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+/*  FORM  */
+.form__input {
+    margin: 0 2rem;
+    width: 50rem;
+    height: 4rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+        inset -0.2rem -0.2rem 0.5rem var(--white);
+    background: none;
+    font-family: inherit;
+    color: var(--primary-color);
+}
+
+// .form__input::-moz-placeholder {
+//     color: var(--greyLight-3);
+// }
+
+// .form__input:-ms-input-placeholder {
+//     color: var(--greyLight-3);
+// }
+
+// .form__input::placeholder {
+//     color: var(--greyLight-3);
+// }
+
+.form__input:focus {
+    outline: none;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+        -0.2rem -0.2rem 0.5rem var(--white);
+}

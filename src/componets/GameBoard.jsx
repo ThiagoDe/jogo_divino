@@ -59,6 +59,9 @@ const GameBoard = () => {
 
   return (
     <div className="game-board" >
+      <div className='moon'>
+        <img src="/moon.png" alt="moon" />
+      </div>
 
       {cardPlaceholders.map((card, index) => {
         const x = centerX + Math.sin(index * cardAngle) * (boardSize / 2 - cardSize / 2);
@@ -97,6 +100,9 @@ const GameBoard = () => {
       />
       
       
+      <div className='sun'>
+        <img src="/sun.png" alt="" />
+      </div>
     </div>
   );
 };
