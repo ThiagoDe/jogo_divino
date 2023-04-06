@@ -6,6 +6,7 @@ import { updateCurrCard } from '../features/currCard/currCardSlice';
 import { updateModal } from '../features/modal/modalSlice';
 import { updateUsingBoard } from '../features/game/gameSlice';
 
+
 const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
   const [showFront, setShowFront] = useState(true)
 
@@ -39,6 +40,7 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
     // triggers modal 
     setTimeout(() => {
       dispatch(updateCurrCard(cardInfo))
+      // opens modal
       dispatch(updateModal())
     }, 600);
 

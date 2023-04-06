@@ -7,7 +7,6 @@ const ModalSpread = () => {
     const [open, setOpen] = useState(false);
     const gameOn = useSelector(state => state.game.gameOn)
     const usingBoard = useSelector(state => state.game.usingBoard)
-    console.log(usingBoard, 'board')
 
     const checkIsOpen = () => {
         if (usingBoard) { 

@@ -3,6 +3,7 @@ import Card from './Card';
 import './SpreadBoard.scss';
 import { useSelector } from 'react-redux';
 
+
 let cardInfoArray = [
     { name: 'A CRIAÇÃO', image: '/1 - A CRIAÇÃO.png', compCard: 'O APRENDIZ', compImage: '/7 - O APRENDIZ.png' },
     { name: 'O AMANTE', image: '/2 - O AMANTE.png', compCard: 'O POLÍTICO', compImage : '/8 - O POLÍTICO.png'  },
@@ -26,19 +27,23 @@ function shuffleArray(array) {
   }
   return array;
 }
-
 shuffleArray(cardInfoArray)
 
 const SpreadBoard = () => {
     const [cardWidth, setCardWidth ] = useState(null)
     const currCard = useSelector((state) => state.currCard)
+    const isModalActive = useSelector((state) => state.modal.open)
+    const isGameOn = useSelector((state) => state.game.gameOn)
+    const usingBoard = useSelector(state => state.game.usingBoard)
     const marginLeft = cardWidth ? -cardWidth / 2 : 0;
 
+    // filter used card and delete it from deck
     if (currCard.name !== '') {
         const cardArrayUpdated = cardInfoArray.filter( card => card.name !== currCard.name)
         cardInfoArray = cardArrayUpdated
     }
 
+    // set the width of the cards
     useEffect(() => {
         const waitForElement = async () => {
             while (!document.querySelector('.card-image-front-board')) {
@@ -50,6 +55,7 @@ const SpreadBoard = () => {
         waitForElement()
     }, [])
 
+    // window resize cards are responsive 
     useEffect(() => {
         const card = document.querySelector('.card-image-front-board')
         const handleResize = () => setCardWidth(card.offsetWidth)
@@ -58,7 +64,7 @@ const SpreadBoard = () => {
     }, [])
 
     return (
-        <div className="spread-board" style={{minHeight: '20%'}}>
+        <div className={(isModalActive || usingBoard || !isGameOn) ? "spread-board active" : "spread-board"} style={{minHeight: '20%'}}>
         {cardInfoArray.map((cardInfo, index) => (
            
                 <Card 

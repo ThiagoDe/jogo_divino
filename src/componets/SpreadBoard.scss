@@ -3,11 +3,13 @@
     display: flex;
     justify-content: center;
     // align-items: center;
-    width: 80%;
+    // width: 80%;
     flex-wrap: wrap;
     margin: 0 auto;
     max-width: 100%;
     padding: 20px;
+    padding-left: 6%;
+    padding-right: 2%;
     box-sizing: border-box;
     border-radius: 10px;
 
@@ -31,6 +33,11 @@
     z-index: 1;
     transition: border-width 0.9s ease-out;
     animation: pulse 1s infinite;
+}
+
+.spread-board.active::before {
+    animation-play-state: paused;
+    border: none;
 }
 
 .spread-board:hover::before {

@@ -32,6 +32,7 @@ const GameBoard = () => {
   const centerY = ((windowHeight) / 2) - (cardSize * 1.4 ) ; // up - down
   const currCard = useSelector((state) => state.currCard)
 
+  // update image path card placeholders
   if (currCard.name !== '') {
     cardPlaceholders.map((card, index) => {
       if (currCard.name === card.name) {
@@ -40,17 +41,19 @@ const GameBoard = () => {
     })
   }
 
-  if (destruidorCentral.name === currCard.name) {
-      
+  // edge case update image path destruidor central
+  if (destruidorCentral.name === currCard.name) {    
      destruidorCentral.image = currCard.image 
-    }
+  }
   
+  // update window width value
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+   // update window height value
   useEffect(() => {
     const handleResize = () => setWindowHeight(window.innerHeight)
     window.addEventListener('resize', handleResize)
