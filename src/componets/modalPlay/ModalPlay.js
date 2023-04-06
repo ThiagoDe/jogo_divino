@@ -2,26 +2,33 @@ import React, { useState } from 'react'
 import './ModalPlay.scss'
 import { useSelector, useDispatch } from 'react-redux';
 // import { updateModal } from '../features/modal/modalSlice';
+import { updateGame, updateSubject, updateUsingBoard } from '../../features/game/gameSlice';
 
 
 const ModalPlay = ({play}) => {
     const [ firstTime, setFirstTime ] = useState(true)
-    const [modalOpened, setModalOpen] = useState(false)
+    const [modalOpened, setModalOpen] = useState(true)
     const [theme, setTheme] = useState("");
+    const gameOn = useSelector(state => state.game.gameOn)
+    const subject = useSelector(state => state.game.subject)
+    // console.log(gameOn, 'here')
+    // console.log(subject, 'subject')
 
     const dispatch = useDispatch()
 
     const modalToggle = () => {
         setFirstTime(false)
         setModalOpen(false)
-        // setTimeout(() => {
-        //     dispatch(updateModal())
-        // }, 300)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("Submitted theme:", theme);
+
+        dispatch(updateSubject(theme))
+        dispatch(updateGame())
+        dispatch(updateUsingBoard())
+        setModalOpen(false)
     };
 
     const handleThemeChange = (event) => {
@@ -54,10 +61,9 @@ const ModalPlay = ({play}) => {
                 >
                 <input
                     onKeyDown={handleKeyDown}
-                    handleSubmit={handleSubmit}
                     onChange={handleThemeChange}
                     type="text"
-                    class="form__input"
+                    className="form__input"
                     placeholder="Exemplo : Meu relacionamento com o dinheiro"
                     id="input"
                 />
@@ -65,7 +71,7 @@ const ModalPlay = ({play}) => {
             </div>
             <div>
                 <button id="submit_btn" onClick={handleSubmit}>
-                    <div class="btn btn__primary"><p>JOGAR</p></div>
+                    <div className="btn btn__primary"><p>JOGAR</p></div>
                 </button>
             </div>
            

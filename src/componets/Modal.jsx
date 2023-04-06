@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Modal.scss'
 import { useSelector, useDispatch } from 'react-redux';
 import { updateModal } from '../features/modal/modalSlice';
+import { updateUsingBoard } from '../features/game/gameSlice';
 
 
 const Modal = () => {
@@ -12,6 +13,9 @@ const Modal = () => {
     const dispatch = useDispatch()
 
     const modalToggle = () => {
+        //switch attention to spread board
+        dispatch(updateUsingBoard())
+
         setFirstTime(false)
         setTimeout(() => {
             dispatch(updateModal())

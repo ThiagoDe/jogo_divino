@@ -1,4 +1,5 @@
 .spread-board {
+    position: relative;
     display: flex;
     justify-content: center;
     // align-items: center;
@@ -9,6 +10,31 @@
     padding: 20px;
     box-sizing: border-box;
     border-radius: 10px;
+
+    // border-style: solid;
+    // background: #111;
+    
+    // opacity: 0.4;
+    cursor: pointer;
+
+}
+
+.spread-board::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 5px solid var(--secondary-color);
+    border-radius: 50px;
+    z-index: 1;
+    transition: border-width 0.9s ease-out;
+    animation: pulse 1s infinite;
+}
+
+.spread-board:hover::before {
+    z-index: -1;
 }
 
 .spread-board .card {
@@ -18,4 +44,22 @@
 .spread-board .card:hover {
     transform: scale(1.15);
 }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        /* start with the original size */
+    }
+
+    50% {
+        transform: scale(1.02);
+        /* increase the size by 20% */
+    }
+
+    100% {
+        transform: scale(1);
+        /* return to the original size */
+    }
+}
+
 

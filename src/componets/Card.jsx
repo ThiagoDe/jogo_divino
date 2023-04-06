@@ -4,6 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateCurrCard } from '../features/currCard/currCardSlice';
 import { updateModal } from '../features/modal/modalSlice';
+import { updateUsingBoard } from '../features/game/gameSlice';
 
 const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
   const [showFront, setShowFront] = useState(true)
@@ -31,6 +32,9 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
   // handle card click from the spread board
   const onClick = (e) => {
     // update currCard global state
+
+    // switch back to using board
+    dispatch(updateUsingBoard())
     
     // triggers modal 
     setTimeout(() => {

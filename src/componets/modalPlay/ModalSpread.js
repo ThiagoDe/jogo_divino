@@ -2,25 +2,32 @@ import './ModalSpread.scss'
 import React, {useState, useEffect} from 'react';
 import { useSelector } from 'react-redux';
 
-const ModalLeft = () => {
+const ModalSpread = () => {
 
     const [open, setOpen] = useState(false);
+    const gameOn = useSelector(state => state.game.gameOn)
+    const usingBoard = useSelector(state => state.game.usingBoard)
+    console.log(usingBoard, 'board')
+
+    const checkIsOpen = () => {
+        if (usingBoard) { 
+            setOpen(false)
+        } else {
+            setOpen(true)
+        }
+    }
+
+    useEffect(() => {
+        checkIsOpen()
+    },[usingBoard])
  
 
-    // useEffect(() => {
-        
-    //         setOpen(false)
-
-    // }, [gameOn, roundComplete])
-
-
-
     const content = (
-        <div className={`dropdown-menu ${!open? 'active' : 'inactive'}`} >
+        <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
             <h2>Escolha uma carta</h2>
         </div>
     )
     return content
 }
 
-export default ModalLeft 
+export default ModalSpread 
