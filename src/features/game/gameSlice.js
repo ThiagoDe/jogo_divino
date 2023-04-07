@@ -16,6 +16,9 @@ export const gameSlice = createSlice({
     updateUsingBoard: (state) => {
       state.usingBoard = !state.usingBoard
     },
+    switchToBoard: (state) => {
+      state.usingBoard = false
+    },
     updateSubject: (state, actions) => {
       state.subject = actions.payload
     }
@@ -23,6 +26,6 @@ export const gameSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { updateGame, updateSubject, updateUsingBoard} = gameSlice.actions
+export const { updateGame, updateSubject, updateUsingBoard, switchToBoard} = gameSlice.actions
 
 export default gameSlice.reducer

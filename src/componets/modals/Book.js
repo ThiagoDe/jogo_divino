@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Book.scss"
 import { useSelector } from "react-redux";
 
 const Book = () => {
-
+    const [isChecked, setIsChecked] = useState(false);
     const card = useSelector(state => state.currCard)
 
     
@@ -26,6 +26,8 @@ const Book = () => {
                         <p>
                             <input
                                 type="checkbox"
+                                // checked={true}
+                                // onChange={() => setIsChecked(!isChecked)}
                                 // checked={selectedRows.includes(row)}
                                 // onChange={() => handleRowSelection(row)}
                             />
@@ -41,6 +43,7 @@ const Book = () => {
                         <p>
                             <input
                                 type="checkbox"
+                                // onChange={() => setIsChecked(!isChecked)}
                                 // checked={selectedRows.includes(row)}
                                 // onChange={() => handleRowSelection(row)}
                             />
@@ -55,10 +58,10 @@ const Book = () => {
             </label>
                 
             {/* <!-- Resets the page --> */}
-            <input type="radio" name="page" id="page-1"/>
+            <input type="radio" name="page" id="page-1" checked={true}/>
                 
             {/* <!-- Goes to the second page --> */}
-            <input type="radio" name="page" id="page-2"/>
+            <input type="radio" name="page" id="page-2" />
             <label className="book__page book__page--2">
                 <div className="book__page-front">
                 <div className="page__content">

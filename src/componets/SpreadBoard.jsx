@@ -69,7 +69,7 @@ const SpreadBoard = () => {
     }, [])
 
     return (
-        <div className={(isModalActive || usingBoard || !isGameOn) ? "spread-board active" : "spread-board"} >
+        <div className={(isModalActive || usingBoard || !isGameOn) ? "spread-board active" : "spread-board"} style={{"--width": `${cardWidth * 0.5}px`,}} >
         {cardInfoArray.map((cardInfo, index) => (
            
                 <Card 
@@ -82,6 +82,7 @@ const SpreadBoard = () => {
                     marginLeft={marginLeft}
                     style={{
                         position: 'absolute',
+                        
                         width: cardWidth,
                         height: cardHeight,
                         border: '1px solid black',

@@ -24,7 +24,7 @@
     height: fit-content;
 
     position: fixed;
-    animation: pulse2 1.4s ease-in-out infinite;
+    animation: pulseCenter 1.4s ease-in-out infinite;
     /* use fixed position to position the element relative to the viewport */
     top: 76%;
     /* move the element 50% from the top edge of the viewport */
@@ -102,7 +102,7 @@ h3 span {
     transition: var(--speed);
 }
 
-@keyframes pulse {
+@keyframes pulseCenter {
     0% {
         transform: scale(1);
         /* start with the original size */

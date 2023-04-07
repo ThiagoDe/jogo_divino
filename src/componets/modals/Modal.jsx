@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Modal.scss'
 import { useSelector, useDispatch } from 'react-redux';
 import { updateModal } from '../../features/modal/modalSlice';
-import { updateUsingBoard } from '../../features/game/gameSlice';
+import { updateUsingBoard, switchToBoard } from '../../features/game/gameSlice';
 import Book from './Book';
 
 
@@ -14,7 +14,7 @@ const Modal = () => {
 
     const modalToggle = () => {
         //switch attention to spread board
-        dispatch(updateUsingBoard())
+        dispatch(switchToBoard())
 
         setFirstTime(false)
         // close modal global state
