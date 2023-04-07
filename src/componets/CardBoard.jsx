@@ -9,8 +9,6 @@ const CardBoard = ({ name, image, marginLeft, style,  }) => {
 
   const currCard = useSelector((state) => state.currCard)
   const dispatch = useDispatch()
-  console.log(currCard, 'curr card')
-
 
   const onClick = (e) =>{
       // get the full card's info 

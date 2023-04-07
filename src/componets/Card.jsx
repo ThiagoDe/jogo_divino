@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateCurrCard } from '../features/currCard/currCardSlice';
 import { updateModal } from '../features/modal/modalSlice';
 import { updateUsingBoard } from '../features/game/gameSlice';
+import { updateCardSize } from '../features/cardSize/cardSizeSlice';
 
 
 const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
@@ -17,6 +18,8 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
   const [currTop, setCurrTop] = useState()
 
   const currCard = useSelector((state) => state.currCard)
+  const sizes = useSelector( state => state.cardSize)
+  console.log(sizes, 'sizes')
   const modal = useSelector(state => state.modal)
   const dispatch = useDispatch()
 
@@ -29,6 +32,16 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
       setPlaceTop(top)
     }
   }, [name])
+
+  // update cardSize globally
+  // useEffect(() => {
+    // const width = style.width
+    // const height = cardHeight
+    // const cardSize = { width, height }
+    // dispatch(updateCardSize(cardSize))
+    // console.log(sizes)
+
+  // },[cardHeight, style, sizes])
 
   // handle card click from the spread board
   const onClick = (e) => {
@@ -62,7 +75,7 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
 
   return (
     <>
-      <div className="card" style={{ zIndex: showFront ? 'auto' : 999 }} >
+      <div className="card" style={{ zIndex: showFront ? 'auto' : 999, "--height": `${cardHeight}px` }} >
         <CSSTransition
                     in={showFront}
                     timeout={300}
@@ -72,7 +85,7 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
             <div className={`card-content ${showFront ? '' : 'move'}`} onClick={onClick}  
                 style={{ 
                   width: style.width, 
-                  height: cardHeight, 
+                  height: style.height, 
                   marginLeft: marginLeft,
                   '--start-top': currTop,
                   '--start-left': currLeft,

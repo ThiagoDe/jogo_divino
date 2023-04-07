@@ -31,6 +31,7 @@ shuffleArray(cardInfoArray)
 
 const SpreadBoard = () => {
     const [cardWidth, setCardWidth ] = useState(null)
+    const [cardHeight, setCardHeight ] = useState(null)
     const currCard = useSelector((state) => state.currCard)
     const isModalActive = useSelector((state) => state.modal.open)
     const isGameOn = useSelector((state) => state.game.gameOn)
@@ -51,6 +52,7 @@ const SpreadBoard = () => {
             }
             const card = document.querySelector('.card-image-front-board');
             setCardWidth(card.offsetWidth)
+            setCardHeight(card.offsetHeight)
         }
         waitForElement()
     }, [])
@@ -58,13 +60,16 @@ const SpreadBoard = () => {
     // window resize cards are responsive 
     useEffect(() => {
         const card = document.querySelector('.card-image-front-board')
-        const handleResize = () => setCardWidth(card.offsetWidth)
+        const handleResize = () => {
+            setCardWidth(card.offsetWidth)
+            setCardHeight(card.offsetHeight)
+        }
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
     return (
-        <div className={(isModalActive || usingBoard || !isGameOn) ? "spread-board active" : "spread-board"} style={{minHeight: '20%'}}>
+        <div className={(isModalActive || usingBoard || !isGameOn) ? "spread-board active" : "spread-board"} >
         {cardInfoArray.map((cardInfo, index) => (
            
                 <Card 
@@ -78,6 +83,7 @@ const SpreadBoard = () => {
                     style={{
                         position: 'absolute',
                         width: cardWidth,
+                        height: cardHeight,
                         border: '1px solid black',
                     }}
                 />

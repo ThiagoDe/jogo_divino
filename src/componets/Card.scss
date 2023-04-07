@@ -1,6 +1,8 @@
 // this is the flippeable class 
+
 .card {
     perspective:  1000px; 
+    height: var(--height);
 }
 
 .card-content {
