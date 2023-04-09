@@ -18,6 +18,8 @@
 
     //move
     animation: move 1s ease-in-out forwards;
+
+  
 }
 
 // .move .flip-exit-done {
@@ -35,6 +37,7 @@
         left: var(--end-left);
     }
 }
+
 
 .move {
     animation-name: move-card;

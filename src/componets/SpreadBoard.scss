@@ -17,6 +17,18 @@
     cursor: pointer;
 }
 
+ul.spread-board {
+    width: fit-content;
+    
+    list-style-type: none;
+    position: relative;
+    li.card {
+        position: absolute;
+        // left: 0px;
+        transition: all 0.4s cubic-bezier(.63, .15, .03, 1.12);
+    }
+    
+}
 
 
 .spread-board::before {
@@ -52,9 +64,9 @@
     // height: --height;
 }
 
-.spread-board .card:hover {
-    transform: scale(1.15);
-}
+// .spread-board .card:hover {
+//     transform: scale(1.15);
+// }
 
 @keyframes pulse2 {
     0% {

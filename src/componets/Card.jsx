@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './Card.scss'
+// import './CardBoard.scss'
 import { CSSTransition } from 'react-transition-group';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateCurrCard } from '../features/currCard/currCardSlice';
@@ -8,8 +9,10 @@ import { updateUsingBoard } from '../features/game/gameSlice';
 import { updateCardSize } from '../features/cardSize/cardSizeSlice';
 
 
-const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
+const Card = ({ name, image, marginLeft, style, index, cardInfo, isGameOn }) => {
+ 
   const [showFront, setShowFront] = useState(true)
+  const [animationDir, setAnimationDir] = useState(0)
 
   const [cardHeight, setCardHeight] = useState()
   const [placeLeft, setPlaceLeft] = useState()
@@ -17,9 +20,10 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
   const [currLeft, setCurrLeft] = useState()
   const [currTop, setCurrTop] = useState()
 
+
+
   const currCard = useSelector((state) => state.currCard)
   const sizes = useSelector( state => state.cardSize)
-  console.log(sizes, 'sizes')
   const modal = useSelector(state => state.modal)
   const dispatch = useDispatch()
 
@@ -33,15 +37,6 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
     }
   }, [name])
 
-  // update cardSize globally
-  // useEffect(() => {
-    // const width = style.width
-    // const height = cardHeight
-    // const cardSize = { width, height }
-    // dispatch(updateCardSize(cardSize))
-    // console.log(sizes)
-
-  // },[cardHeight, style, sizes])
 
   // handle card click from the spread board
   const onClick = (e) => {
@@ -75,7 +70,22 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
 
   return (
     <>
-      <div className="card" style={{ zIndex: showFront ? 'auto' : 999, "--height": `${cardHeight}px` }} >
+      <li className={`card card-${index + 1}`} 
+         
+          style={{ zIndex: showFront ? 'auto' : 999, "--height": `${cardHeight}px`,  
+          //  transform: `translate(${index}0px, 0px) `,
+           left: isGameOn ? `${-((marginLeft * 0.5) * index)}px` :'0px',
+
+          }}
+          onMouseOver={() => {
+            const liElement = document.querySelector(`.card-${index + 1}`);
+            liElement.style.transform = "scale(1.15) ";
+          }}
+          onMouseOut={() => {
+            const liElement = document.querySelector(`.card-${index + 1}`);
+            liElement.style.transform = "scale(1) ";
+          }}
+          >
         <CSSTransition
                     in={showFront}
                     timeout={300}
@@ -86,19 +96,83 @@ const Card = ({ name, image, marginLeft, style, placeHolder, cardInfo }) => {
                 style={{ 
                   width: style.width, 
                   height: style.height, 
-                  marginLeft: marginLeft,
+                  // marginLeft: (marginLeft * 2 ),
                   '--start-top': currTop,
                   '--start-left': currLeft,
                   '--end-top': placeTop,
                   '--end-left': placeLeft,
+                  // animation: index === 0 ? "none" :`slide-in 0.5s`,
+                  // animationName: index === 0 ? "none" : "slide-in",
+                  // animationFillMode: "forwards",
+                  // animationTimingFunction: "ease-in-out",
+                  // animationDelay: `${
+                  // index * 0.5 + 0.5}s`
                   }}>
+                    <style>
+                      {`
+                        @keyframes slide-in {
+                          0% {
+                            transform: translateX(${0 }px);
+                          }
+                          100% {
+                            transform: translateX(${-marginLeft  }px);
+                          }
+                        }
+                      `}
+                    </style>
+
               
               <img src={image} alt={name} className="card-image-front"  style={{ width: style.width, marginLeft: marginLeft}}/>
             
-            <img src={'/card-back.png'} alt={name} className="card-image-back" style={{ width: style.width, marginLeft: marginLeft}}/>
+              <img src={'/card-back.png'} alt={name} className="card-image-back" style={{ width: style.width, marginLeft: marginLeft}}/>
             </div>
         </CSSTransition>
-      </div>
+      </li>
+
+      {/* <li className={`card card-${index + 1}`} 
+          style={{ zIndex: showFront ? 'auto' : 999, "--height": `${cardHeight}px` }} >
+        <CSSTransition
+                    in={showFront}
+                    timeout={300}
+                    classNames='flip'
+                >
+          
+            <div className={`card-content ${showFront ? '' : 'move'}`} onClick={onClick}  
+                style={{ 
+                  width: style.width, 
+                  height: style.height, 
+                  marginLeft: (marginLeft ),
+                  '--start-top': currTop,
+                  '--start-left': currLeft,
+                  '--end-top': placeTop,
+                  '--end-left': placeLeft,
+                  // animation: index === 0 ? "none" :`slide-in 0.5s`,
+                  // animationName: index === 0 ? "none" : "slide-in",
+                  // animationFillMode: "forwards",
+                  // animationTimingFunction: "ease-in-out",
+                  // animationDelay: `${
+                  // index * 0.5 + 0.5}s`
+                  }}>
+                    <style>
+                      {`
+                        @keyframes slide-in {
+                          0% {
+                            transform: translateX(${0 }px);
+                          }
+                          100% {
+                            transform: translateX(${-marginLeft  }px);
+                          }
+                        }
+                      `}
+                    </style>
+
+              
+              <img src={image} alt={name} className="card-image-front"  style={{ width: style.width, marginLeft: marginLeft}}/>
+            
+              <img src={'/card-back.png'} alt={name} className="card-image-back" style={{ width: style.width, marginLeft: marginLeft}}/>
+            </div>
+        </CSSTransition>
+      </li> */}
     </>
   );
 };

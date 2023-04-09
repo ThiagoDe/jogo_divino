@@ -32,6 +32,7 @@ shuffleArray(cardInfoArray)
 const SpreadBoard = () => {
     const [cardWidth, setCardWidth ] = useState(null)
     const [cardHeight, setCardHeight ] = useState(null)
+
     const currCard = useSelector((state) => state.currCard)
     const isModalActive = useSelector((state) => state.modal.open)
     const isGameOn = useSelector((state) => state.game.gameOn)
@@ -68,10 +69,19 @@ const SpreadBoard = () => {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
+
+
     return (
-        <div className={(isModalActive || usingBoard || !isGameOn) ? "spread-board active" : "spread-board"} style={{"--width": `${cardWidth * 0.5}px`,}} >
-        {cardInfoArray.map((cardInfo, index) => (
-           
+        <ul 
+            className={
+                (isModalActive || usingBoard || !isGameOn) 
+                    ? `spread-board active `
+                    : `spread-board ${!isGameOn ? '' : 'transition'}`
+                } 
+                style={{"--width": `${(-(marginLeft * 0.73) * 13) }px`, height: cardHeight,}} >
+
+            {cardInfoArray.map((cardInfo, index) => (
+
                 <Card 
                     cardInfo={cardInfo}
                     key={cardInfo.name}
@@ -80,17 +90,48 @@ const SpreadBoard = () => {
                     index={index}
                     placeHolder={false}
                     marginLeft={marginLeft}
+                    isGameOn={isGameOn}
                     style={{
                         position: 'absolute',
-                        
                         width: cardWidth,
                         height: cardHeight,
                         border: '1px solid black',
+                        
                     }}
                 />
-        ))}
-        </div>
+                ))}
+        </ul>
     );
+    // return (
+    //     <div 
+    //         className={
+    //             (isModalActive || usingBoard || !isGameOn) 
+    //                 ? "spread-board active" 
+    //                 : "spread-board"
+    //             } 
+    //             style={{"--width": `${cardWidth * 0.5}px`,}} >
+
+    //         {cardInfoArray.map((cardInfo, index) => (
+
+    //             <Card 
+    //                 cardInfo={cardInfo}
+    //                 key={cardInfo.name}
+    //                 image={cardInfo.image}
+    //                 name={cardInfo.name}
+    //                 index={index}
+    //                 placeHolder={false}
+    //                 marginLeft={marginLeft}
+    //                 style={{
+    //                     position: 'absolute',
+    //                     width: cardWidth,
+    //                     height: cardHeight,
+    //                     border: '1px solid black',
+                        
+    //                 }}
+    //             />
+    //             ))}
+    //     </div>
+    // );
 };
 
 export default SpreadBoard;

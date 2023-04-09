@@ -58,7 +58,7 @@ const Book = () => {
             </label>
                 
             {/* <!-- Resets the page --> */}
-            <input type="radio" name="page" id="page-1" checked={true}/>
+            <input type="radio" name="page" id="page-1" checked={true} readOnly/>
                 
             {/* <!-- Goes to the second page --> */}
             <input type="radio" name="page" id="page-2" />
