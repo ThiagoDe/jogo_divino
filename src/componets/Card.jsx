@@ -72,18 +72,24 @@ const Card = ({ name, image, marginLeft, style, index, cardInfo, isGameOn }) => 
     <>
       <li className={`card card-${index + 1}`} 
          
-          style={{ zIndex: showFront ? 'auto' : 999, "--height": `${cardHeight}px`,  
-          //  transform: `translate(${index}0px, 0px) `,
-           left: isGameOn ? `${-((marginLeft * 0.5) * index)}px` :'0px',
+          style={{ zIndex: showFront ? 'auto' : 999, "--height": `${cardHeight}px`,
+            // transitionDuration: '1.6s',
+            left: isGameOn ? `${-((marginLeft * 1) * index)}px` : `${index * 5}px`,
+            // transitionTimingFunction: 'cubic-bezier(0.3, 0.5, 0.3, 0.5)',
+            // transform: `rotateZ(${Math.random() * 14 - 7}deg)`,
+            // transform: isGameOn ? 
+            //   `rotateZ(${-6 + index}deg) translateY(${ (index < 5) ? (index *(-5)): (index *(-5)+ (index -4) * 5)}px)`
+            //   : `rotateZ(${Math.random() * 14 - 7}deg) `,
 
           }}
           onMouseOver={() => {
             const liElement = document.querySelector(`.card-${index + 1}`);
-            liElement.style.transform = "scale(1.15) ";
+            liElement.style.transform = "translateY(-30px) ";
+            
           }}
           onMouseOut={() => {
             const liElement = document.querySelector(`.card-${index + 1}`);
-            liElement.style.transform = "scale(1) ";
+            liElement.style.transform = "translateY(0) ";
           }}
           >
         <CSSTransition
@@ -101,25 +107,20 @@ const Card = ({ name, image, marginLeft, style, index, cardInfo, isGameOn }) => 
                   '--start-left': currLeft,
                   '--end-top': placeTop,
                   '--end-left': placeLeft,
-                  // animation: index === 0 ? "none" :`slide-in 0.5s`,
-                  // animationName: index === 0 ? "none" : "slide-in",
-                  // animationFillMode: "forwards",
-                  // animationTimingFunction: "ease-in-out",
-                  // animationDelay: `${
-                  // index * 0.5 + 0.5}s`
+              
                   }}>
-                    <style>
+                    {/* <style>
                       {`
                         @keyframes slide-in {
                           0% {
                             transform: translateX(${0 }px);
                           }
                           100% {
-                            transform: translateX(${-marginLeft  }px);
+                            transform: translateX(${-marginLeft }px);
                           }
                         }
                       `}
-                    </style>
+                    </style> */}
 
               
               <img src={image} alt={name} className="card-image-front"  style={{ width: style.width, marginLeft: marginLeft}}/>

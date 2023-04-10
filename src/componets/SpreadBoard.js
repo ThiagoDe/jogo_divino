@@ -78,7 +78,11 @@ const SpreadBoard = () => {
                     ? `spread-board active `
                     : `spread-board ${!isGameOn ? '' : 'transition'}`
                 } 
-                style={{"--width": `${(-(marginLeft * 0.73) * 13) }px`, height: cardHeight,}} >
+                style={{"--width": `${(-(marginLeft  * (cardInfoArray.length + 1))) }px`,
+                 height: (cardHeight * 1.1),
+                    // transform: `rotateZ(${Math.random() * 14 - 7}deg)`,
+                }}
+                 >
 
             {cardInfoArray.map((cardInfo, index) => (
 
