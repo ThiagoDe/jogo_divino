@@ -51,7 +51,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0",
-    "qawolf": "1.7.0"
+    "gh-pages": "^5.0.0"
   }
 }
