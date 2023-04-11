@@ -27,7 +27,7 @@ const CardBoard = ({ name, image, marginLeft, style,  }) => {
     <>     
       <div className="card-board" onClick={onClick} style={{ marginLeft: marginLeft}}>
         <div className='card-content-board' >
-          <img src={image} alt={name} id='image' className="card-image-front-board" style={style}/>
+          <img src={process.env.PUBLIC_URL + image} alt={name} id='image' className="card-image-front-board" style={style}/>
           
         </div>
       </div>

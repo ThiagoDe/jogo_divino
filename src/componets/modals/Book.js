@@ -12,7 +12,7 @@ const Book = () => {
         <div className="cover">
             <div className="book">
             <label htmlFor="page-1"  className="book__page book__page--1">
-                <img src={card.image} alt=""/>
+                <img src={process.env.PUBLIC_URL + card.image} alt=""/>
                 
             </label>
             

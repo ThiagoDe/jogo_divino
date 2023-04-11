@@ -67,7 +67,7 @@ const GameBoard = () => {
   return (
     <div className="game-board" >
       <div className='moon'>
-        <img src="/moon.png" alt="moon" />
+        <img src={process.env.PUBLIC_URL +"/moon.png"} alt="moon" />
       </div>
 
       {cardPlaceholders.map((card, index) => {
@@ -109,7 +109,7 @@ const GameBoard = () => {
       
       
       <div className='sun'>
-        <img src="/sun.png" alt="" />
+        <img src={process.env.PUBLIC_URL + "/sun.png"} alt="" />
       </div>
     </div>
   );

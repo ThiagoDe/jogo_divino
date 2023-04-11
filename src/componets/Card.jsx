@@ -123,9 +123,9 @@ const Card = ({ name, image, marginLeft, style, index, cardInfo, isGameOn }) => 
                     </style> */}
 
               
-              <img src={image} alt={name} className="card-image-front"  style={{ width: style.width, marginLeft: marginLeft}}/>
+              <img src={process.env.PUBLIC_URL + image} alt={name} className="card-image-front"  style={{ width: style.width, marginLeft: marginLeft}}/>
             
-              <img src={'/card-back.png'} alt={name} className="card-image-back" style={{ width: style.width, marginLeft: marginLeft}}/>
+              <img src={process.env.PUBLIC_URL +'/card-back.png'} alt={name} className="card-image-back" style={{ width: style.width, marginLeft: marginLeft}}/>
             </div>
         </CSSTransition>
       </li>
