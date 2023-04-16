@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,600|Tulpen+One&display=swap');
+
+:root {
+    /* colors */
+    --body-bg: #FAFAFA;
+    --page-bg: rgb(248 225 178);
+    --dark-text: #2A2935;
+
+    /* spacing */
+    /* this is what defines the global scale */
+    --baseline: min(1.76vh, 1.3vw);
+
+    /* fonts */
+    --book-title: 'Tulpen One', sans-serif;
+    --title: 'Cormorant Garamond', serif;
+    --body: 'Cormorant Garamond', serif;
+    --base-size: var(--baseline) * 1.2;
+}
+.cover {
+    // width: calc(var(--baseline) * 60);
+    // height: calc(var(--baseline) * 42.6);
+    width: calc(var(--baseline) * 69);
+    height: calc(var(--baseline) * 49.4);
+    box-shadow: 0 0 100px rgba(0, 0, 0, .3);
+    border: 5px solid rgb(26, 26, 26);
+    border-radius: inherit;
+}
+
+.book {
+    width: 100%;
+    height: 100%;
+    // max-height: 500px;
+    // min-height: 300px;
+    // width: 800px;
+    
+    background-color: var(--page-bg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+
+    border: 3px solid hsla(30, 10%, 20%, 1);
+    border-radius: inherit;
+    box-shadow: 0 0 150px hsla(170, 0%, 0%, .4);
+}
+
+.book img {
+    border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+}
+
+.page {
+    height: 100%;
+    width: 50%;
+    line-height: 1.5;
+    border-right: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: 0 50%;
+    transition: .8s;
+    border-radius: inherit;
+    /*animation: unflip .3s linear;*/
+}
+
+[class*='side'] {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: var(--page-bg);
+    // background-image: url('http://inspirationhut3.inspirationhut.netdna-cdn.com/wp-content/uploads/2012/11/Old-Paper-Texture-3.jpg');
+    background-size: 100% 100%;
+    backface-visibility: hidden;
+    overflow: auto;
+    padding: 5% 8%;
+}
+
+.side-1 {
+    z-index: 2;
+    box-shadow: inset 50px 0 50px rgba(0, 0, 0, .5);
+    transition: .5s;
+}
+
+.side-2 {
+    transform:
+        rotateY(180deg);
+    box-shadow: inset -50px 0 50px rgba(0, 0, 0, .5);
+}
+
+.flipped>.side-1 {
+    box-shadow: inset 300px 0 50px rgba(0, 0, 0, .8);
+    transition: .6s;
+}
+
+.flipped>[class*='side'] {
+    pointer-events: auto;
+}
+
+.content {
+    background-color: transparent;
+}
+
+.page:after {
+    width: 100px;
+    height: 50px;
+    background-color: #555;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -100px;
+    margin: auto;
+    color: white;
+    text-shadow: 0 -1px 0 #222;
+    line-height: 50px;
+    text-align: center;
+    font-family: monospace;
+    content: 'next-page';
+    animation: hide .8s linear;
+}
+
+.page.flipped:after {
+    content: 'prev-page';
+    transform:
+        rotateY(180deg);
+    pointer-events: auto;
+}
+
+/* to hide on flip animation */
+@keyframes hide {
+    0% {
+        opacity: 0;
+    }
+
+    85% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.flipped {
+    transform:
+        rotateY(-180deg);
+    pointer-events: none;
+    /*animation: flip .3s linear;
+  animation-fill-mode: forwards;*/
+}
+
+.no-anim,
+.no-anim:after {
+    animation: none;
+    /* disable animation when page loads */
+}
+
+@keyframes flip {
+    to {
+        transform:
+            rotateY(-180deg);
+    }
+}
+
+@keyframes unflip {
+    from {
+        transform:
+            rotateY(-180deg);
+    }
+
+    to {
+        transform:
+            rotateY(0deg);
+    }
+}
+

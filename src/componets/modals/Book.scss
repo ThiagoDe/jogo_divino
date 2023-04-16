@@ -222,9 +222,37 @@
         }
     }
 }
-.book__page-back {
-
+.book__page--4:before {
+    height: 80px;
+    width: 80px;
+    background-color: #2a2929b3;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -80px;
+    margin: auto;
+    color: white;
+    text-shadow: 0 -1px 0 #222;
+    line-height: 50px;
+    text-align: center;
+    content: '>';
+    font-size: 3em;
+    animation: hide .8s linear;
+    display: block;
+    border: 1px solid #666;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 1.5);
+    overflow: hidden;
+    display: flex;
+    /* use a flex container */
+    align-items: center;
+    /* center vertically */
+    justify-content: center;
+    /* center horizontally */
+    padding-bottom: 10px;
 }
+    
+
 
 .book__page {
     background-image: linear-gradient(90deg, rgb(206 183 136 / 72%) 0%, rgb(247 247 247 / 0%) 18%);

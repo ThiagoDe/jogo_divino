@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateModal } from '../../features/modal/modalSlice';
 import { updateUsingBoard, switchToBoard } from '../../features/game/gameSlice';
 import Book from './Book';
+import Book2 from './Book2';
 
 
 const Modal = () => {
@@ -31,7 +32,7 @@ const Modal = () => {
 
         <div className={containerClass}>
             
-            <Book/>
+            <Book2/>
          
         </div>
         
