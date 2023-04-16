@@ -6,18 +6,18 @@ import { updateCardSize } from '../features/cardSize/cardSizeSlice';
 
 
 const cardPlaceholders = [
-  { name: 'O MAGO', image: '/placehoders/12.png', id: '12' },
-  { name: 'A CRIAÇÃO', image: '/placehoders/1.png', id: '1' },
-  { name: 'O AMANTE', image: '/placehoders/2.png', id: '2' },
-  { name: 'O GOVERNANTE', image: '/placehoders/3.png', id: '3' },
-  { name: 'O SÁBIO', image: '/placehoders/4.png', id: '4' },
-  { name: 'O INOCENTE', image: '/placehoders/5.png', id: '5' },
-  { name: 'O CIGANO', image: '/placehoders/6.png', id: '6' },
-  { name: 'O APRENDIZ', image: '/placehoders/7.png', id: '7' },
-  { name: 'O POLÍTICO', image: '/placehoders/8.png', id: '8' },
-  { name: 'O SACERDOTE', image: '/placehoders/9.png', id: '9' },
-  { name: 'O LOUCO', image: '/placehoders/10.png', id: '10' },
-  { name: 'O PROVEDOR', image: '/placehoders/11.png', id: '11' },
+  { name: 'O MAGO', image: '/placeholders/12.png', id: '12' },
+  { name: 'A CRIAÇÃO', image: '/placeholders/1.png', id: '1' },
+  { name: 'O AMANTE', image: '/placeholders/2.png', id: '2' },
+  { name: 'O GOVERNANTE', image: '/placeholders/3.png', id: '3' },
+  { name: 'O SÁBIO', image: '/placeholders/4.png', id: '4' },
+  { name: 'O INOCENTE', image: '/placeholders/5.png', id: '5' },
+  { name: 'O CIGANO', image: '/placeholders/6.png', id: '6' },
+  { name: 'O APRENDIZ', image: '/placeholders/7.png', id: '7' },
+  { name: 'O POLÍTICO', image: '/placeholders/8.png', id: '8' },
+  { name: 'O SACERDOTE', image: '/placeholders/9.png', id: '9' },
+  { name: 'O LOUCO', image: '/placeholders/10.png', id: '10' },
+  { name: 'O PROVEDOR', image: '/placeholders/11.png', id: '11' },
 ]
 
 const destruidorCentral = { name: 'O DESTRUIDOR', image: '/placehoders/13.png' };
@@ -64,13 +64,16 @@ const GameBoard = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  // const percent = destruidorCentral.image.includes('placehoders') ? "0%" : "100%"
+
   return (
     <div className="game-board" >
       <div className='moon'>
         <img src={process.env.PUBLIC_URL +"/moon.png"} alt="moon" />
       </div>
-
+      
       {cardPlaceholders.map((card, index) => {
+        const percent = card.image.includes('placeholders') ? "60%" : "100%"
         const x = centerX + Math.sin(index * cardAngle) * (boardSize / 2 - cardSize / 2);
         const y = centerY - Math.cos(index * cardAngle) * (boardSize / 2 - cardSize / 2);
         return (
@@ -86,7 +89,8 @@ const GameBoard = () => {
                 left: x,
                 width: cardSize,
                 height: cardHeight,
-                border: '1px solid black',    
+                // border: '1px solid black',   
+                opacity: percent,
               }}
             />
             
@@ -104,6 +108,7 @@ const GameBoard = () => {
           left: centerX,
           width: cardSize,
           border: '1px solid black',
+          opacity: destruidorCentral.image.includes('placehoders') ? "0%" : "100%"
         }}
       />
       

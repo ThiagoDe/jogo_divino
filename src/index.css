@@ -34,11 +34,24 @@ code {
     --caf-noir: #4D381Dff;
     --drab-dark-brown: #3B311Cff;
 
+    /* CSS HEX */
+      --cinnabar: #E34C23ff;
+      --brown: #8F530Cff;
+      --licorice: #100000ff;
+      --sandy-brown: #F4AB63ff;
+      --persian-orange: #DE873Fff;
+      --light-orange: #F8DDBFff;
+      --black: #000000ff;
+      --kobicha: #734922ff;
 
-  --primary-color: #2F2F2B;
-  --secondary-color: #E6D7AEff;
+
+  --primary-color: #7878721c;
+  --secondary-color: #ebc143;
+  /* --primary-color: #2F2F2B;
+  --secondary-color: #E6D7AEff; */
   /* --secondary-color: #D4A75Cff; */
-  --black-olive: #2F2F2B;
+  /* --black-olive: #2F2F2B; */
+  --black-olive: #08042c;
 
   /* old palette */
   /* --primary-color: #2F2F2B;

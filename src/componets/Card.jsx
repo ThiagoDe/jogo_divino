@@ -98,7 +98,7 @@ const Card = ({ name, image, marginLeft, style, index, cardInfo, isGameOn }) => 
                     classNames='flip'
                 >
           
-            <div className={`card-content ${showFront ? '' : 'move'}`} onClick={onClick}  
+            <div className={`nt ${showFront ? '' : 'move'}`} onClick={onClick}  
                 style={{ 
                   width: style.width, 
                   height: style.height, 

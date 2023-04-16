@@ -71,8 +71,9 @@ const SpreadBoard = () => {
 
 
 
-    return (
+    const boardCards = (
         <ul 
+            
             className={
                 (isModalActive || usingBoard || !isGameOn) 
                     ? `spread-board active `
@@ -101,11 +102,17 @@ const SpreadBoard = () => {
                         height: cardHeight,
                         border: '1px solid black',
                         
+                        
                     }}
                 />
                 ))}
         </ul>
     );
+    if (cardInfoArray.length > 0 ) {
+        return boardCards
+    } else {
+        return 
+    }
     // return (
     //     <div 
     //         className={

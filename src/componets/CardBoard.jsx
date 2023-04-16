@@ -22,7 +22,6 @@ const CardBoard = ({ name, image, marginLeft, style,  }) => {
       dispatch(updateModal())
     }
   }
-
   return (
     <>     
       <div className="card-board" onClick={onClick} style={{ marginLeft: marginLeft}}>
