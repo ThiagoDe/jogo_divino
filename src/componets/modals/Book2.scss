@@ -3,7 +3,7 @@
 :root {
     /* colors */
     --body-bg: #FAFAFA;
-    --page-bg: rgb(248 225 178);
+    --page-bg: rgb(232, 200, 137);
     --dark-text: #2A2935;
 
     /* spacing */
@@ -16,6 +16,14 @@
     --body: 'Cormorant Garamond', serif;
     --base-size: var(--baseline) * 1.2;
 }
+
+// body * {
+//     transform-style: preserve-3d;
+// }
+.cover * {
+    transform-style: preserve-3d;
+}
+
 .cover {
     // width: calc(var(--baseline) * 60);
     // height: calc(var(--baseline) * 42.6);
@@ -24,6 +32,7 @@
     box-shadow: 0 0 100px rgba(0, 0, 0, .3);
     border: 5px solid rgb(26, 26, 26);
     border-radius: inherit;
+    
 }
 
 .book {
@@ -33,7 +42,7 @@
     // min-height: 300px;
     // width: 800px;
     
-    background-color: var(--page-bg);
+    background-color: rgb(104 76 38);
     position: absolute;
     top: 0;
     left: 0;
@@ -48,7 +57,7 @@
 
 .book img {
     border-top-left-radius: 30px;
-        border-bottom-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .page {
@@ -62,6 +71,8 @@
     transform-origin: 0 50%;
     transition: .8s;
     border-radius: inherit;
+    font-family: var(--title);
+    font-size: 1.5em;
     /*animation: unflip .3s linear;*/
 }
 
@@ -79,14 +90,18 @@
 
 .side-1 {
     z-index: 2;
-    box-shadow: inset 50px 0 50px rgba(0, 0, 0, .5);
+    box-shadow: inset 50px 0 50px rgb(22 14 14 / 17%);
     transition: .5s;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 .side-2 {
     transform:
         rotateY(180deg);
-    box-shadow: inset -50px 0 50px rgba(0, 0, 0, .5);
+    box-shadow: inset -50px 0 50px rgb(22 14 14 / 27%);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .flipped>.side-1 {
@@ -99,29 +114,40 @@
 }
 
 .content {
+    text-align: left;
     background-color: transparent;
+}
+
+.content h2 {
+    text-align: center;
+}
+.content h1 {
+    text-align: center;
 }
 
 .page:after {
     width: 100px;
-    height: 50px;
-    background-color: #555;
+    height: 90px;
+    background-color: #55555500;
     position: absolute;
     top: 0;
     bottom: 0;
-    right: -100px;
+    right: -120px;
     margin: auto;
-    color: white;
+    color: rgb(222, 192, 157);
     text-shadow: 0 -1px 0 #222;
     line-height: 50px;
     text-align: center;
-    font-family: monospace;
-    content: 'next-page';
+    font-family: var(--title);
+    font-size: 8em;
+    content: '>';
     animation: hide .8s linear;
 }
 
+
+
 .page.flipped:after {
-    content: 'prev-page';
+    content: '<';
     transform:
         rotateY(180deg);
     pointer-events: auto;

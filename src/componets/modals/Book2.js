@@ -3,27 +3,57 @@ import "./Book2.scss"
 import { useSelector } from "react-redux";
 
 const Book2 = () => {
-    const [isChecked, setIsChecked] = useState(false);
-    const card = useSelector(state => state.currCard)
-    const [flip, setFlip] = useState(false)
 
+    const card = useSelector(state => state.currCard)
+
+    // add eventListener to book
     useEffect(() => {
-        const pageAfter = document.querySelector('.side-1');
-        console.log(pageAfter,'here')
+        const pageAfter = document.querySelector('.book');
+        console.log(pageAfter,'book')
         if (pageAfter) {
         pageAfter.addEventListener('click', handleClick);
         }
-        // return () => {
-        // if (pageAfter) {
-        //     pageAfter.removeEventListener('click', handleClick);
-        // }
-        // }
+        return () => {
+        if (pageAfter) {
+            pageAfter.removeEventListener('click', handleClick);
+        }
+        }
     }, []);
 
-  const handleClick = (e) => {
-    console.log(e, 'eeee')
-    // your click handler code here
-  };
+    const handleClick = (e) => {
+        console.log(e.target.id, 'eeee')
+        const id = e.target.id
+        if (id.includes('page')) {
+            const ele = document.getElementById(id)
+            if (ele.className.includes("flipped")){
+                ele.className = 'page'
+            } else {
+                ele.className = 'page flipped'
+            }
+            console.log(ele)
+         reorder()
+        }
+        reorder()
+    };
+
+    useEffect(() => {
+        reorder();
+    });
+
+    function reorder() {
+        const book = document.querySelector(".book");
+        const pages = book.querySelectorAll(".page");
+        const pagesFlipped = book.querySelectorAll(".flipped");
+
+        pages.forEach((page, i) => {
+            page.style.zIndex = pages.length - i;
+        });
+
+        pagesFlipped.forEach((page, i) => {
+            page.style.zIndex = i + 1;
+        });
+    }
+
     
     return (  
         <>   
@@ -32,26 +62,29 @@ const Book2 = () => {
             <img src={process.env.PUBLIC_URL + card.image} alt=""/>
             <div id='page-1' className='page no-anim'>    
                 <div className='side-1' id='p1'>
-                <div className='content'>
-                    <h1>The Pilgrim's Path</h1>
-                    <p>
-                    The pilgrim must visit each of the Shrines of the Seven Graces. At each site the pilgrim must stand before the three-sided stone triolith and read the inscription. To ease the pilgrim's task, the Temple has made this list of shrines along with directions and advice to pilgrims. The blessings of each shrine last at least a half day.
-                    </p>
-                </div>
-                {/* 
-                //  */}
+                    <div className='content'>
+                        <h1>{card.name}</h1>
+                        <p>
+                        The pilgrim must visit each of the Shrines of the Seven Graces. At each site the pilgrim must stand before the three-sided stone triolith and read the inscription. To ease the pilgrim's task, the Temple has made this list of shrines along with directions and advice to pilgrims. The blessings of each shrine last at least a half day.
+                        </p>
+                    </div>
                 </div>
                 {/* <!-- .side-1 -->     */}
                 <div className='side-2' id='p2'>      
-                <div className='content'>
-                    <h2>The Fields of Kummu: Shrine of Humility</h2>
-                    <p>
-                    Here Lord Vivec met a poor farmer whose guar had died. The farmer could not harvest his muck without his guar, and he could not provide for his family or his village. So the Lord Vivec removed his fine clothes and toiled in the fields like a beast of burden until the crop was harvested. It is at the Fields of Kummu we go to pray for the same humility Lord Vivec showed on that day.
-                    </p>
-                    <p>
-            The Fields of Kummu are west of Suran on the north shore of Lake Amaya as you head towards Pelagiad. The shrine is between two rocks, and most easily noticed while traveling east along the road. Alof's farm nearby has a small dock on the north bank of Lake Amaya. This is the only dock nearby which Alof kindly allows servants of the Temple to use. It is customary to leave a portion of muck at the shrine to represent Vivec's humility.
-                    </p>
-                </div>
+                    <div className='content'>
+                        {/* <label>
+                        <input type="checkbox" name="myCheckbox" value="1"/>
+                        Option 1
+                        </label> */}
+
+                        <h2>The Fields of Kummu: Shrine of Humility</h2>
+                        <p>
+                        Here Lord Vivec met a poor farmer whose guar had died. The farmer could not harvest his muck without his guar, and he could not provide for his family or his village. So the Lord Vivec removed his fine clothes and toiled in the fields like a beast of burden until the crop was harvested. It is at the Fields of Kummu we go to pray for the same humility Lord Vivec showed on that day.
+                        </p>
+                        <p>
+                The Fields of Kummu are west of Suran on the north shore of Lake Amaya as you head towards Pelagiad. The shrine is between two rocks, and most easily noticed while traveling east along the road. Alof's farm nearby has a small dock on the north bank of Lake Amaya. This is the only dock nearby which Alof kindly allows servants of the Temple to use. It is customary to leave a portion of muck at the shrine to represent Vivec's humility.
+                        </p>
+                    </div>
                 {/* <!-- .content --> */}
                 </div>
                 {/* <!-- .side-2 --> */}
