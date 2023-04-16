@@ -130,50 +130,6 @@ const Card = ({ name, image, marginLeft, style, index, cardInfo, isGameOn }) => 
         </CSSTransition>
       </li>
 
-      {/* <li className={`card card-${index + 1}`} 
-          style={{ zIndex: showFront ? 'auto' : 999, "--height": `${cardHeight}px` }} >
-        <CSSTransition
-                    in={showFront}
-                    timeout={300}
-                    classNames='flip'
-                >
-          
-            <div className={`card-content ${showFront ? '' : 'move'}`} onClick={onClick}  
-                style={{ 
-                  width: style.width, 
-                  height: style.height, 
-                  marginLeft: (marginLeft ),
-                  '--start-top': currTop,
-                  '--start-left': currLeft,
-                  '--end-top': placeTop,
-                  '--end-left': placeLeft,
-                  // animation: index === 0 ? "none" :`slide-in 0.5s`,
-                  // animationName: index === 0 ? "none" : "slide-in",
-                  // animationFillMode: "forwards",
-                  // animationTimingFunction: "ease-in-out",
-                  // animationDelay: `${
-                  // index * 0.5 + 0.5}s`
-                  }}>
-                    <style>
-                      {`
-                        @keyframes slide-in {
-                          0% {
-                            transform: translateX(${0 }px);
-                          }
-                          100% {
-                            transform: translateX(${-marginLeft  }px);
-                          }
-                        }
-                      `}
-                    </style>
-
-              
-              <img src={image} alt={name} className="card-image-front"  style={{ width: style.width, marginLeft: marginLeft}}/>
-            
-              <img src={'/card-back.png'} alt={name} className="card-image-back" style={{ width: style.width, marginLeft: marginLeft}}/>
-            </div>
-        </CSSTransition>
-      </li> */}
     </>
   );
 };

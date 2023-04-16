@@ -5,9 +5,9 @@ import cardInfoArray from '../cardsRef';
 import { updateCurrCard } from '../features/currCard/currCardSlice';
 import { updateModal } from '../features/modal/modalSlice';
 
-const CardBoard = ({ name, image, marginLeft, style,  }) => {
+const CardBoard = ({ name, image, marginLeft, style, id}) => {
 
-  const currCard = useSelector((state) => state.currCard)
+  // const currCard = useSelector((state) => state.currCard)
   const dispatch = useDispatch()
 
   const onClick = (e) =>{
@@ -24,12 +24,12 @@ const CardBoard = ({ name, image, marginLeft, style,  }) => {
   }
   return (
     <>     
-      <div className="card-board" onClick={onClick} style={{ marginLeft: marginLeft}}>
+      <li key={id} className="card-board" onClick={onClick} style={{ marginLeft: marginLeft}}>
         <div className='card-content-board' >
           <img src={process.env.PUBLIC_URL + image} alt={name} id='image' className="card-image-front-board" style={style}/>
           
         </div>
-      </div>
+      </li>
     </>
   );
 };

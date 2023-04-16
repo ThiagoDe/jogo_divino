@@ -9,7 +9,6 @@ const Book2 = () => {
     // add eventListener to book
     useEffect(() => {
         const pageAfter = document.querySelector('.book');
-        console.log(pageAfter,'book')
         if (pageAfter) {
         pageAfter.addEventListener('click', handleClick);
         }
@@ -21,7 +20,6 @@ const Book2 = () => {
     }, []);
 
     const handleClick = (e) => {
-        console.log(e.target.id, 'eeee')
         const id = e.target.id
         if (id.includes('page')) {
             const ele = document.getElementById(id)
@@ -30,7 +28,6 @@ const Book2 = () => {
             } else {
                 ele.className = 'page flipped'
             }
-            console.log(ele)
          reorder()
         }
         reorder()

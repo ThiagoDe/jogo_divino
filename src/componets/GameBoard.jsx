@@ -66,39 +66,41 @@ const GameBoard = () => {
 
   // const percent = destruidorCentral.image.includes('placehoders') ? "0%" : "100%"
 
-  return (
+  const board = (
     <div className="game-board" >
       <div className='moon'>
         <img src={process.env.PUBLIC_URL +"/moon.png"} alt="moon" />
       </div>
-      
-      {cardPlaceholders.map((card, index) => {
-        const percent = card.image.includes('placeholders') ? "60%" : "100%"
-        const x = centerX + Math.sin(index * cardAngle) * (boardSize / 2 - cardSize / 2);
-        const y = centerY - Math.cos(index * cardAngle) * (boardSize / 2 - cardSize / 2);
-        return (
-          <>
-            <CardBoard
-              key={card.id}
-              name={card.name}
-              image={card.image}
-              placeHolder={true}
-              style={{
-                position: 'absolute',
-                top: y,
-                left: x,
-                width: cardSize,
-                height: cardHeight,
-                // border: '1px solid black',   
-                opacity: percent,
-              }}
-            />
-            
-          </>
-        );
-      })}
+      <ul>
+        {cardPlaceholders.map((card, index) => {
+          const percent = card.image.includes('placeholders') ? "60%" : "100%"
+          const x = centerX + Math.sin(index * cardAngle) * (boardSize / 2 - cardSize / 2);
+          const y = centerY - Math.cos(index * cardAngle) * (boardSize / 2 - cardSize / 2);
+          
+          return (
+              <CardBoard
+                key={card.id + card.name}
+                id={card.id + card.name}
+                name={card.name}
+                image={card.image}
+                placeHolder={true}
+                style={{
+                  position: 'absolute',
+                  top: y,
+                  left: x,
+                  width: cardSize,
+                  height: cardHeight,
+                  // border: '1px solid black',   
+                  opacity: percent,
+                }}
+              />
+            )
+          
+        })}
+      </ul>
       <CardBoard
-        key="destruidor-central"
+        id={"destruidor-central"}
+        key={"destruidor-central"}
         name={destruidorCentral.name}
         image={destruidorCentral.image}
         placeHolder={true}
@@ -118,6 +120,8 @@ const GameBoard = () => {
       </div>
     </div>
   );
+
+  return board
 };
 
 
