@@ -123,6 +123,12 @@
 }
 .content h1 {
     text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase !important;
+}
+.content p {
+    text-indent: 1.5em;
+    
 }
 
 .page:after {
