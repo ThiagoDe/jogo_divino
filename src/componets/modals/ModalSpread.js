@@ -16,9 +16,9 @@ const ModalSpread = () => {
         }
     }
 
-    useEffect(() => {
-        checkIsOpen()
-    },[usingBoard])
+    // useEffect(() => {
+    //     checkIsOpen()
+    // },[usingBoard])
  
 
     const content = (
