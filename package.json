@@ -2,7 +2,6 @@
   "name": "jogo_divino_v1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://thiagode.github.io/jogo_divino",
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.21.4",
     "@babel/preset-react": "^7.18.6",
