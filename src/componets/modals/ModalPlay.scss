@@ -33,7 +33,8 @@
     // align-items: center;
     max-height: 70vh;
     max-width: 1600px;
-    width: 80vw;
+    min-width: 960px;
+    width: 48vw;
     // flex-direction: column;
 
 }
@@ -117,6 +118,7 @@
 
 .playModal-header {
     padding: 15px;
+    color: #505050;
 }
 
 @keyframes blowUpContent {

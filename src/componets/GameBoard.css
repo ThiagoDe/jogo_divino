@@ -28,7 +28,7 @@
         background-size: 100%, calc(90vh), calc(70vh);
     
         /* Set the position of the gradient to the center */
-        background-position: center, left calc(50% - 0.27rem) top calc(-40%), center 2.5em;
+        background-position: center, left calc(50% - 0.27rem) top calc(-40%), center 0.5em;
         /* Set the blend mode to multiply */
         background-blend-mode: saturation;
         /* Prevent the background image from repeating */
