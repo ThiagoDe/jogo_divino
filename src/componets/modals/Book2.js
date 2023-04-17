@@ -81,7 +81,7 @@ const Book2 = () => {
                         <br/>
                         <div>
                             <img src={process.env.PUBLIC_URL + card.image} alt="" style={{zIndex: '0',
-                                width: '12em', 
+                                width: '9em', 
                                 float: 'left',
                                 margin: '15px', 
                                 marginBottom: '5px', 
@@ -91,6 +91,7 @@ const Book2 = () => {
                         </div>
                         <p style={{
                             textAlign: 'justify',
+                            textIndent: '0em',
                         }}>
                         A carta O Amante trás elementos que remetem a nossa busca pelo intangível. Nas mãos dois corações de fogo, a vontade Divina manifestada na dualidade. A bola de cristal reflete o ponto de vista interior do Amante sobre o destino que deseja encontrar. O cavalo branco alado, representa a fé, a confiança em si mesmo, o poder. O portal em formato de coração representa as medicinas, a reciprocidade da Terra, que sonha o mesmo sonho do Amante, a cura, a evolução e o reconhecimento do sagrado.
                         </p>
