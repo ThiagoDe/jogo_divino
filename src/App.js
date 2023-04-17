@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Footer from './componets/Footer';
 import GameBoard from './componets/GameBoard';
