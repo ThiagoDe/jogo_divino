@@ -23,7 +23,7 @@
 
     background: linear-gradient(to right, #131436 0%,
                 #399afd 50%,
-                #e5b872 50%, rgb(137 6 0) 100%), url("../.././public/taca.png"), url('../.././public/chakanabg.png');
+                #e5b872 50%, rgb(137 6 0) 100%), url("./taca.png"), url('./chakanabg.png');
         /* Set the size of both backgrounds */
         background-size: 100%, calc(90vh), calc(70vh);
     

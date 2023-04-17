@@ -42,7 +42,7 @@
     // min-height: 300px;
     // width: 800px;
     
-    background-color: rgb(104 76 38);
+    background-color: RGB(104 76 38);
     position: absolute;
     top: 0;
     left: 0;
@@ -90,7 +90,7 @@
 
 .side-1 {
     z-index: 2;
-    box-shadow: inset 50px 0 50px rgb(22 14 14 / 17%);
+    box-shadow: inset 50px 0 50px RGB(22 14 14 / 17%);
     transition: .5s;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
@@ -99,7 +99,7 @@
 .side-2 {
     transform:
         rotateY(180deg);
-    box-shadow: inset -50px 0 50px rgb(22 14 14 / 27%);
+    box-shadow: inset -50px 0 50px RGB(22 14 14 / 27%);
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
