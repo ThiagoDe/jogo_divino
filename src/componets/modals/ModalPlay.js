@@ -64,6 +64,7 @@ const ModalPlay = ({play}) => {
                     onChange={handleThemeChange}
                     type="text"
                     className="form__input"
+                    style={{ color:' #2f2f2b', width: '36rem'}}
                     placeholder="Exemplo : Meu relacionamento com o dinheiro"
                     id="input"
                 />
