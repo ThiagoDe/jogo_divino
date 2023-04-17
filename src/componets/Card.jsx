@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Card.scss'
 // import './CardBoard.scss'
-import { CSSTransition } from 'react-transition-group';
+// import { CSSTransition } from 'react-transition-group';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateCurrCard } from '../features/currCard/currCardSlice';
 import { updateModal } from '../features/modal/modalSlice';
