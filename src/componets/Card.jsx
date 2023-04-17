@@ -92,11 +92,11 @@ const Card = ({ name, image, marginLeft, style, index, cardInfo, isGameOn }) => 
             liElement.style.transform = "translateY(0) ";
           }}
           >
-        <CSSTransition
-                    in={showFront}
+        {/* <CSSTransition */}
+                    {/* in={showFront}
                     timeout={300}
                     classNames='flip'
-                >
+                > */}
           
             <div className={`nt ${showFront ? '' : 'move'}`} onClick={onClick}  
                 style={{ 
@@ -127,7 +127,7 @@ const Card = ({ name, image, marginLeft, style, index, cardInfo, isGameOn }) => 
             
               <img src={process.env.PUBLIC_URL +'/card-back.png'} alt={name} className="card-image-back" style={{ width: style.width, marginLeft: marginLeft}}/>
             </div>
-        </CSSTransition>
+        {/* </CSSTransition> */}
       </li>
 
     </>
