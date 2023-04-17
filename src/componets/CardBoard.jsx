@@ -15,7 +15,7 @@ const CardBoard = ({ name, image, marginLeft, style, id}) => {
     const card = cardInfoArray.filter(c => c.name === e.target.alt)[0]
       
     // check if it has substring placeholders
-    if (!e.target.src.includes("placehoders")) {
+    if (!e.target.src.includes("placeholders")) {
       // update curr card
       dispatch(updateCurrCard(card))
         // trigger modal
