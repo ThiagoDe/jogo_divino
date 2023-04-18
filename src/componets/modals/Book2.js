@@ -209,12 +209,15 @@ const Book2 = () => {
                         <input type="checkbox" name="myCheckbox" value="1"/>
                         </label> <strong>Nenhuma das alternativas </strong>
                     </div>
-
-                    {/* <div>
-                    <button id="submit_btn" >
-                            <div className="btn btn__primary"><p >Continue</p></div>
-                        </button>
-                    </div> */}
+                    <br/>
+                    <br/>
+                    <center>
+                        <div>
+                            <button id="submit_btn" style={{ textAlign: "center"}} >
+                                <div className="btn btn__primary" style={{ textAlign: "center", fontSize: "2em"}}>Continue</div>
+                            </button>
+                        </div>
+                    </center>
                     {/* <p>
                     Within the Koal Cave, Vivec fought a battle with Ruddy Man, the father of the Dreugh. When he defeated Ruddy Man, Vivec spared his life, on the condition that Ruddy Man and his children would give up their tough hides to serve as armor for the Dunmer.
                     </p>
