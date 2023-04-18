@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Modal.scss'
 import { useSelector, useDispatch } from 'react-redux';
 import { updateModal } from '../../features/modal/modalSlice';
@@ -12,6 +12,11 @@ const Modal = () => {
     const modalOpened = useSelector((state) => state.modal.open)
     const currCard = useSelector((state) => state.currCard)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        // reset Book2 state when currCard changes
+        setFirstTime(true)
+    }, [currCard])
 
     const modalToggle = () => {
         //switch attention to spread board

@@ -28,7 +28,7 @@
         background-size: 100%, calc(90vh), calc(70vh);
     
         /* Set the position of the gradient to the center */
-        background-position: center, left calc(50% - 0.27rem) top calc(-40%), center 0.5em;
+        background-position: center, left calc(50% - 0.27rem) top calc(-40%), center -1em;
         /* Set the blend mode to multiply */
         background-blend-mode: saturation;
         /* Prevent the background image from repeating */
@@ -58,12 +58,13 @@
     margin-top: 100px;
     margin-left: 10px;
     height: fit-content;
+    width: 17rem;
     
 }
 
 .sun {
     opacity: 0.37 ;
-    width: 330px;
+    width: 19rem;
     margin-top: 100px;
     height: fit-content;
 }
@@ -87,36 +88,36 @@ img[src='/jogo_divino/placeholders/3.png']{
     z-index: 0;
 } */
 
-.card-image-front-board[src^='/jogo_divino/placeholders/'] {
+.card-image-front-board[src^='/placeholders/'] {
     z-index: 0 !important;
 }
 
 
-img[src='/jogo_divino/9 - O SACERDOTE.png']{
+img[src='/9 - O SACERDOTE.png']{
     z-index: 4;
 }
-img[src='/jogo_divino/8 - O POLÍTICO.png']{
+img[src='/8 - O POLÍTICO.png']{
     z-index: 5;
 }
-img[src='/jogo_divino/7 - O APRENDIZ.png']{
+img[src='/7 - O APRENDIZ.png']{
     z-index: 6;
 }
 
-img[src='/jogo_divino/1 - A CRIAÇÃO.png']{
+img[src='/1 - A CRIAÇÃO.png']{
     z-index: 3;
 }
-img[src='/jogo_divino/2 - O AMANTE.png']{
+img[src='/2 - O AMANTE.png']{
     z-index: 3;
 }
-img[src='/jogo_divino/10 - O LOUCO.png']{
+img[src='/10 - O LOUCO.png']{
     z-index: 3;
 }
-img[src='/jogo_divino/3 - O GOVERNANTE.png']{
+img[src='/3 - O GOVERNANTE.png']{
     z-index: 4;
 }
-img[src='/jogo_divino/4 - O SÁBIO.png']{
+img[src='/4 - O SÁBIO.png']{
     z-index: 5;
 }
-img[src='/jogo_divino/5 - O INOCENTE.png']{
+img[src='/5 - O INOCENTE.png']{
     z-index: 5;
 }

@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 import './Header.css';
 import Logo from '../newLogo.png'
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   }
 
+  // add event listener to close toggle is user clicks outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
+
+
   return (
     <div className="header">
-      <div className="header__menu">
+      <div className="header__menu" ref={dropdownRef}>
         <div className="header__menu-toggle" onClick={toggleMenu}>
           Menu
         </div>

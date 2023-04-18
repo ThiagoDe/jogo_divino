@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 const Book2 = () => {
 
     const card = useSelector(state => state.currCard)
+    const [image, setImage] = useState(card.image);
+    const [pageZIndexes, setPageZIndexes] = useState([]);
 
     // add eventListener to book
     useEffect(() => {
@@ -34,14 +36,16 @@ const Book2 = () => {
     };
 
     useEffect(() => {
-        reorder();
-    });
+        orderDefault();
+    }, [image]);
 
     function reorder() {
         const book = document.querySelector(".book");
         const pages = book.querySelectorAll(".page");
         const pagesFlipped = book.querySelectorAll(".flipped");
 
+
+        
         pages.forEach((page, i) => {
             page.style.zIndex = pages.length - i;
         });
@@ -51,8 +55,28 @@ const Book2 = () => {
         });
     }
 
+    const orderDefault = () => {
+        const book = document.querySelector(".book");
+        const pages = book.querySelectorAll(".page");
+        const pagesFlipped = book.querySelectorAll(".flipped");
+
+        console.log(pages, 'p')
+        pages.forEach((page, i) => {
+        page.style.zIndex = pages.length - i;
+        });
+
+        pagesFlipped.forEach((page) => {
+            page.classList = 'page no-anim'
+        });
+        // page no-anim
+    };
+
+
+    useEffect(() => {
+        setImage(card.image);
+    }, [card.image]);
     
-    return (  
+    const book = (  
         <>   
         <div className="cover">
         <div className='book'>  
@@ -193,6 +217,8 @@ const Book2 = () => {
         </div>
         </>  
     )
+    
+    return book
 
 }
 
