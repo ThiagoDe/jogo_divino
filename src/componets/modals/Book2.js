@@ -134,6 +134,9 @@ const Book2 = () => {
                     <h2>Leitura relativa da carta</h2>
                     <br/>
                     <p>
+                        {/* <label>
+                        <input type="checkbox" name="myCheckbox" value="1"/>
+                        </label>  */}
                            <strong>Sentido Horário: </strong> Este é o momento de reconhecer e assumir a chama interior que o convida a formar vínculos e compromissos com aquilo que você ama. Uma das formas de expressão dessa energia é Eros. Conhecemos Eros quando experimentamos uma ligação passional com uma pessoa, um projeto ou uma paisagem. Eros nos traz a excitação para vivermos uma vida com entusiasmo. Sem o prazer o jogo da vida não se sustenta.
                 O Amante encarna a jornada rumo ao sonho, ou aquilo que lhe faz feliz, e se compromete com isso.
                 É um convite a abertura irrestrita do coração e da plena autoaceitação.</p>
@@ -187,8 +190,32 @@ const Book2 = () => {
             <div id='page-4' className='page no-anim'>    
                 <div className='side-1' id='p7'>
                 <div className='content'>
-                    {/* <h2>Koal Cave: The Shrine of Valor</h2>
-                    <p>
+                    <h2>Quai(s) texto(s) você se identificou mais?</h2>
+                    <br/>
+                    <div style={{marginLeft: "2em"}}>
+                        
+                    
+                    <label >
+                        <input type="checkbox" name="myCheckbox" value="1"/>
+                    </label> <strong>Sentido Anti-horário </strong> 
+                    <br/>
+                    <br/>
+                    <label>
+                        <input type="checkbox" name="myCheckbox" value="1"/>
+                        </label> <strong>Sentido Anti-horário </strong>
+                    <br/>
+                    <br/>
+                    <label>
+                        <input type="checkbox" name="myCheckbox" value="1"/>
+                        </label> <strong>Nenhuma das alternativas </strong>
+                    </div>
+
+                    {/* <div>
+                    <button id="submit_btn" >
+                            <div className="btn btn__primary"><p >Continue</p></div>
+                        </button>
+                    </div> */}
+                    {/* <p>
                     Within the Koal Cave, Vivec fought a battle with Ruddy Man, the father of the Dreugh. When he defeated Ruddy Man, Vivec spared his life, on the condition that Ruddy Man and his children would give up their tough hides to serve as armor for the Dunmer.
                     </p>
                     <p>

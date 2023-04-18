@@ -55,9 +55,19 @@
     box-shadow: 0 0 150px hsla(170, 0%, 0%, .4);
 }
 
+.content label  {
+    cursor: pointer;
+}
+.content input  {
+    cursor: pointer;
+}
+
 .book img {
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
+}
+.btn .btn__primary p {
+    text-align: center;
 }
 
 .page {

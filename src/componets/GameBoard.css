@@ -21,7 +21,7 @@
     background-position-x: center; */
     /* background-blend-mode: multiply;  */
 
-    background: linear-gradient(to right, #131436 0%,
+    background: linear-gradient(to right, #131436 0%, 
                 #399afd 50%,
                 #e5b872 50%, rgb(137 6 0) 100%), url("./taca.png"), url('./chakanabg.png');
         /* Set the size of both backgrounds */
